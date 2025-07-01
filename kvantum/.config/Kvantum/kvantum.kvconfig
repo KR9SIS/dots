@@ -1,0 +1,6 @@
+[General]
+theme=catppuccin-mocha-red
+
+[Applications]
+Default=dolphin
+catppuccin-mocha-red=/usr/bin/dolphin
