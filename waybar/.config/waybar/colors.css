@@ -2,7 +2,7 @@
 @define-color flamingo #f2cdcd;
 @define-color pink #f5c2e7;
 @define-color mauve #cba6f7;
-@define-color red #f38ba8;
+@define-color red #c21b1b;
 @define-color maroon #eba0ac;
 @define-color peach #fab387;
 @define-color yellow #f9e2af;
@@ -24,3 +24,5 @@
 @define-color base #1e1e2e;
 @define-color mantle #181825;
 @define-color crust #11111b;
+
+/* #f38ba8; */
