@@ -14,5 +14,6 @@ PS1='[\u@\h \W]\$ '
 export EDITOR=$(which nvim)
 export SYSTEM_EDITOR=$EDITOR
 export VISUAL=$EDITOR
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 eval "$(starship init bash)"
