@@ -8,8 +8,6 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ll='ls -alh'
-alias ..='cd ..'
-PS1='[\u@\h \W]\$ '
 
 export EDITOR=$(which nvim)
 export SYSTEM_EDITOR=$EDITOR
