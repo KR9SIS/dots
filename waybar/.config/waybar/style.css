@@ -3,7 +3,7 @@
 
 * {
     font-family: "CaskaydiaCoveNerdFont-Regular.ttf";
-    font-size: 12px;
+    font-size: 13px;
     min-height: 0;
     font-weight: bold;
 }
@@ -19,8 +19,8 @@ window#waybar {
 
 #window {
     margin: 8px;
-    padding-left: 8;
-    padding-right: 8;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 button {
@@ -32,7 +32,6 @@ button {
 button:hover {
     background: inherit;
     color: @oldRed;
-    border-top: 2px solid @oldRed;
 }
 
 #workspaces button {
@@ -42,13 +41,12 @@ button:hover {
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
     color: @oldRed;
-    border-top: 2px solid @oldRed;
 }
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @red;
-    border-top: 2px solid @red;
+    color: @blue;
+    /* border-top: 2px solid @blue; */
 }
 
 #workspaces button.urgent {
@@ -78,65 +76,50 @@ button:hover {
 }
 
 #clock {
-    color: @red;
-    border-bottom: 2px solid @red;
+    color: @blue;
 }
 
 #clock.date {
-    color: @red;
-    border-bottom: 2px solid @red;
+    color: @blue;
 }
 
 #pulseaudio {
     color: @blue;
-    border-bottom: 2px solid @blue;
-}
-
-#network {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
-}
-
-#idle_inhibitor {
-    margin-right: 12px;
-    color: #7cb342;
-}
-
-#idle_inhibitor.activated {
-    color: @red;
 }
 
 #battery {
-    color: @green;
-    border-bottom: 2px solid @green;
+    color: @blue;
 }
+
+#battery.warning {
+    color: @text;
+    background: orange;
+}
+
 #battery.critical {
     color: @text;
-    border-bottom: 2px solid @text;
-    background: red;
-
+    background: @red;
 }
 
 #language {
-    color: @peach;
-    border-bottom: 2px solid @peach;
-    min-width: 55px;
+    color: @blue;
+    min-width: 15px;
 }
 
 #custom-power {
-    color: @red;
-    border-bottom: 2px solid @red;
+    color: @blue;
 }
 
-#temperature,#cpu,#memory {
-    color: @lavender;
-    border-bottom: 2px solid @lavender;
+#temperature,
+#cpu,
+#memory {
+    color: @blue;
 }
 
 #temperature.critical {
     color: @text;
     border-bottom: 2px solid @text;
-    background: red;
+    background: @red;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
