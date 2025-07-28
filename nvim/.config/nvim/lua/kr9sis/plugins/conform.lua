@@ -36,6 +36,7 @@ return {
         python = { 'isort', 'black' },
         json = { 'jq' },
         jsonc = { 'prettier' },
+        bash = { 'shfmt' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
