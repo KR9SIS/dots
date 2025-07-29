@@ -92,12 +92,12 @@ button:hover {
 }
 
 #battery.warning {
-    color: @text;
+    color: @crust;
     background: orange;
 }
 
 #battery.critical {
-    color: @text;
+    color: @crust;
     background: @red;
 }
 
@@ -117,8 +117,7 @@ button:hover {
 }
 
 #temperature.critical {
-    color: @text;
-    border-bottom: 2px solid @text;
+    color: @crust;
     background: @red;
 }
 
