@@ -8,7 +8,8 @@ sleep 5
 
 if hyprctl monitors | grep "description: ASR PG34WQ15R2B"; then
   hyprctl dispatch moveworkspacetomonitor "2 eDP-1"
-  hyprctl dispatch moveworkspacetomonitor "1 DP-1"
+  hyprctl dispatch moveworkspacetomonitor "1 DP-1" # Lower USB C port on PC
+  hyprctl dispatch moveworkspacetomonitor "1 DP-3" # Upper USB C port on PC
 fi
 
 hyprctl dispatch workspace 1
