@@ -1,0 +1,4 @@
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+START_HOURS_RANGE=18-23
+1  5  cron.mine    run-parts /home/kr9sis/.anacron/etc/cron.daily/
