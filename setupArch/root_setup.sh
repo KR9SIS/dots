@@ -3,10 +3,19 @@
 # Localisation
 if sudo grep -q '^is_IS.UTF-8 UTF-8' /etc/locale.gen && sudo grep -q '^en_US.UTF-8' /etc/locale.gen; then
   locale-gen
-  echo "LANG=en_us.UTF-8" >/etc/locale.conf
-  export LANG=en_us.UTF-8
-  echo "KEYMAP=is-latin1-us" >>/etc/vconsole.conf
-  echo "KEYMAP=dk-latin1" >>/etc/vconsole.conf
+
+  if [ ! -e '/etc/locale.conf' ]; then
+    echo "LANG=en_us.UTF-8" >/etc/locale.conf
+  else
+    echo '/etc/locale.conf already exists. Overwrite cmd not run'
+  fi
+  export LANG='en_us.UTF-8'
+  export LC_ALL='is_IS.UTF-8'
+
+  if sudo grep -q '^KEYMAP=is-latin1-us' /etc/locale.gen && sudo grep -q '^KEYMAP=dk-latin1' /etc/locale.gen; then
+    echo 'KEYMAP=is-latin1-us' >>/etc/vconsole.conf
+    echo 'KEYMAP=dk-latin1' >>/etc/vconsole.conf
+  fi
 else
   echo "Edit /etc/locale.gen and uncomment is_IS.UTF-8 UTF-8 and en_US.UTF-8"
 fi
