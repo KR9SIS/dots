@@ -22,41 +22,44 @@ fi
 
 # System stuff
 pacman -Sy \
-  git \
+  blueman \
   bluez \
   bluez-util \
-  blueman \
-  unzip \
-  npm \
-  networkmanager \
-  network-manager-applet \
-  pacman-contrib \
+  git \
+  hyprlock \
   kvantum \
   kvantum-qt5 \
   libnotify \
-  swaync \
   man-db \
   man-pages \
+  network-manager-applet \
+  networkmanager \
+  noto-fonts-emoji \
+  pacman-contrib \
   pavucontrol \
-  waybar \
+  swaync \
   timeshift \
   ttf-font-awesome \
-  noto-fonts-emoji \
-  hyprlock
+  waybar
+
+# nvim dependencies
+pacman -S \
+  jdk-openjdk \
+  lazygit \
+  npm \
+  unzip
 
 # User apps
 pacman -S \
-  stow \
   discord \
   fastfetch \
-  nwg-displays \
   feh \
-  lazygit \
-  jdk-openjdk \
+  nwg-displays \
   qbittorrent \
   signal-desktop \
   spotify-launcher \
   steam \
+  stow \
   vlc
 
 # Enable file system trimming for SSD drive maintenance
