@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Break up script so if one part fails the others continue
+
 # Localisation
 # Edit /etc/locale.gen and uncomment is_IS.UTF-8 UTF-8 and en_US.UTF-8
 locale-gen
@@ -13,9 +15,12 @@ sudo pacman -Sy \
   bluez bluez-util blueman \
   discord \
   fastfetch \
+  unzip \
+  npm \
+  networkmanager \
+  network-manager-applet \
   feh \
   jdk-openjdk \
-  joplin-desktop \
   kvantum kvantum-qt5 \
   libnotify swaync \
   man-db man-pages \
@@ -30,7 +35,10 @@ sudo pacman -Sy \
   timeshift \
   ttf-font-awesome \
   vlc \
-  waybar
+  waybar \
+  noto-fonts-emoji \
+  lazygit \
+  hyprlock 
 
 git clone https://aur.archlinux.org/yay.git
 cd yay || exit
@@ -39,7 +47,7 @@ makepkg -si
 yay -S \
   brave-bin \
   catppuccin-gtk-theme-mocha \
-  hyprshot hyprlock hypridle hyprpaper \
+  hyprshot hypridle hyprpaper \
   joplin-desktop \
   starship \
   tofi \
@@ -63,11 +71,11 @@ mkdir "$HOME/bin/"
 mkdir -p "$HOME/.virtualenvs"
 python -m venv "$HOME/.virtualenvs/debugpy/" || python3 -m venv "$HOME/.virtualenvs/debugpy/"
 
+rsync -avP server@192.168.1.9:/home/server/drive "$HOME"
+
 systemctl enable fstrim.timer
 systemctl disable iwd.service
 systemctl stop iwd.service
 systemctl enable NetworkManager.service
 systemctl start NetworkManager.service
-reboot
 
-rsync -avP server@192.168.1.9:/home/server/drive "$HOME"
