@@ -9,14 +9,20 @@ makepkg -si
 cd || exit
 rm -rf "$HOME/yay"
 
-yay -S \
-  brave-bin \
+# Hyprland apps
+yay -Sy \
   catppuccin-gtk-theme-mocha \
-  hyprshot hypridle hyprpaper \
-  joplin-desktop \
+  hyprshot \
+  hypridle \
+  hyprpaper \
   starship \
   tofi \
-  ttf-cascadia-code-nerd \
+  ttf-cascadia-code-nerd
+
+# User apps
+yay -Sy \
+  brave-bin \
+  joplin-desktop \
   zoom
 
 # Get and set up dotfiles

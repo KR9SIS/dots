@@ -5,12 +5,27 @@ if sudo grep -q '^is_IS.UTF-8 UTF-8' /etc/locale.gen && sudo grep -q '^en_US.UTF
   locale-gen
 
   if [ ! -e '/etc/locale.conf' ]; then
-    echo "LANG=en_us.UTF-8" >/etc/locale.conf
+    printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
+      'LANGUAGE="en_us.UTF-8"' \
+      'LANG=en_US.UTF-8' \
+      'LANG=is_IS.UTF-8' \
+      'LC_CTYPE="is_IS.UTF-8"' \
+      'LC_NUMERIC="is_IS.UTF-8"' \
+      'LC_TIME="is_IS.UTF-8"' \
+      'LC_COLLATE="is_IS.UTF-8"' \
+      'LC_MONETARY="is_IS.UTF-8"' \
+      'LC_MESSAGES="is_IS.UTF-8"' \
+      'LC_PAPER="is_IS.UTF-8"' \
+      'LC_NAME="is_IS.UTF-8"' \
+      'LC_ADDRESS="is_IS.UTF-8"' \
+      'LC_TELEPHONE="is_IS.UTF-8"' \
+      'LC_MEASUREMENT="is_IS.UTF-8"' \
+      'LC_IDENTIFICATION="is_IS.UTF-8"' \
+      'LC_ALL="is_IS.UTF-8"' \
+      >/etc/locale.conf
   else
     echo '/etc/locale.conf already exists. Overwrite cmd not run'
   fi
-  export LANG='en_us.UTF-8'
-  export LC_ALL='is_IS.UTF-8'
 
   if sudo grep -q '^KEYMAP=is-latin1-us' /etc/locale.gen && sudo grep -q '^KEYMAP=dk-latin1' /etc/locale.gen; then
     echo 'KEYMAP=is-latin1-us' >>/etc/vconsole.conf
@@ -27,6 +42,7 @@ pacman -Sy \
   bluez-util \
   git \
   hyprlock \
+  iptables-nft \
   kvantum \
   kvantum-qt5 \
   libnotify \
@@ -40,6 +56,7 @@ pacman -Sy \
   swaync \
   timeshift \
   ttf-font-awesome \
+  ufw \
   waybar
 
 # nvim dependencies
@@ -54,13 +71,15 @@ pacman -S \
   discord \
   fastfetch \
   feh \
+  nmap \
   nwg-displays \
   qbittorrent \
   signal-desktop \
   spotify-launcher \
   steam \
   stow \
-  vlc
+  vlc \
+  wireshark-qt
 
 # Enable file system trimming for SSD drive maintenance
 systemctl enable fstrim.timer
