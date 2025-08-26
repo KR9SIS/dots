@@ -7,7 +7,8 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias ll='ls -alhF'
+alias l='ls -alhF'
+alias rvk='cd ~/drive/School/RVK_UNI/'
 
 export EDITOR=$(which nvim)
 export SYSTEM_EDITOR=$EDITOR
