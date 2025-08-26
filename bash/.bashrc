@@ -15,4 +15,5 @@ export SYSTEM_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
+fortune -ace
 eval "$(starship init bash)"
