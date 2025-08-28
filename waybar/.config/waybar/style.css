@@ -87,10 +87,6 @@ button:hover {
     color: @blue;
 }
 
-#battery {
-    color: @blue;
-}
-
 #battery.warning {
     color: @crust;
     background: orange;
@@ -99,6 +95,12 @@ button:hover {
 #battery.critical {
     color: @crust;
     background: @red;
+}
+
+#battery,
+#battery.charging {
+    color: @blue;
+    background: transparent;
 }
 
 #language {
