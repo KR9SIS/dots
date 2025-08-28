@@ -1,1 +1,2 @@
-clipboard=unnamedplus
+:set clipboard=unnamedplus
+:set nu rnu
