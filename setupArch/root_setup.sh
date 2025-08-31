@@ -57,7 +57,8 @@ pacman -Sy \
   timeshift \
   ttf-font-awesome \
   ufw \
-  waybar
+  waybar \
+  zip
 
 # nvim dependencies
 pacman -S \
