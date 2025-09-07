@@ -40,6 +40,7 @@ pacman -Sy \
   blueman \
   bluez \
   bluez-util \
+  brightnessctl \
   git \
   hyprlock \
   iptables-nft \
