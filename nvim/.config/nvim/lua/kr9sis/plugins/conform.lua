@@ -33,7 +33,7 @@ return {
         lua = { 'stylua' },
         markdown = { 'markdownlint' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'black' },
+        python = { 'autopep8' },
         json = { 'jq' },
         jsonc = { 'prettier' },
         bash = { 'shfmt' },
