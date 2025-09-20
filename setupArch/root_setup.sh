@@ -108,3 +108,8 @@ systemctl enable ufw.service
 # Enable virtual machine systemctl
 systemctl enable libvirtd.service
 systemctl enable libvirtd.socket
+usermod -a -G libvirt-qemu kr9sis
+usermod -a -G libvirt kr9sis
+
+# Enable wireshark with non root access
+usermod -a -G wireshark kr9sis
