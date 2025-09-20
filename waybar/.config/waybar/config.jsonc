@@ -13,7 +13,8 @@
     "custom/power",
   ],
   "clock": {
-    "format": "   {:%a %d %H:%M (%Z)}",
+    // "format": "   {:%a %d %H:%M (%Z)}",
+    "format": "{:%a %d %H:%M (%Z)}",
     "locale": "is_IS.utf8",
     "tooltip-format": "<tt><big>{calendar}\n\n{tz_list}</big></tt>",
     "timezones": ["Atlantic/Reykjavik", "Europe/Copenhagen"],
