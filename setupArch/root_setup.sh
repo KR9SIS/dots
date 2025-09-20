@@ -68,6 +68,13 @@ pacman -S \
   npm \
   unzip
 
+# Virtual Machine setup
+pacman -S \
+  dnsmasq \
+  libvirt \
+  qemu-full \
+  virt-manager
+
 # User apps
 pacman -S \
   discord \
@@ -91,3 +98,6 @@ systemctl disable iwd.service
 systemctl stop iwd.service
 systemctl enable NetworkManager.service
 systemctl start NetworkManager.service
+# Enable virtual machine systemctl
+systemctl enable libvirtd.service
+systemctl enable libvirtd.socket
