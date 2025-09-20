@@ -98,6 +98,10 @@ systemctl disable iwd.service
 systemctl stop iwd.service
 systemctl enable NetworkManager.service
 systemctl start NetworkManager.service
+
+# Enable firewall on startup
+systemctl enable ufw.service
+
 # Enable virtual machine systemctl
 systemctl enable libvirtd.service
 systemctl enable libvirtd.socket
