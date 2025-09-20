@@ -90,6 +90,9 @@ pacman -S \
   vlc \
   wireshark-qt
 
+# Enable pacman weekly cache cleanup
+systemctl enable paccache.timer
+
 # Enable file system trimming for SSD drive maintenance
 systemctl enable fstrim.timer
 
