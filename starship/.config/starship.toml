@@ -20,9 +20,7 @@ $kotlin\
 $haskell\
 $python\
 $docker_context\
-[](fg:#212736 bg:#1d2230)\
-$time\
-[ ](fg:#1d2230)\
+[ ](fg:#212736 )\
 $line_break$character
 """
 
