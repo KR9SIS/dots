@@ -17,6 +17,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 fortune -ace
 eval "$(starship init bash)"
+eval "$(ssh-agent -s)" >/dev/null 2>&1
 
 # isGitRepo() {
 #   if command -v git >/dev/null 2>&1 && git rev-parse --git-dir >/dev/null 2>&1; then
