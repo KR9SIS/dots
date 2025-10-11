@@ -10,7 +10,8 @@ alias grep='grep --color=auto'
 alias l='ls -alhF'
 alias rvk='cd ~/drive/School/RVK_UNI/'
 
-export EDITOR=$(which nvim)
+EDITOR=$(which nvim)
+export EDITOR
 export SYSTEM_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export ELECTRON_OZONE_PLATFORM_HINT=auto
