@@ -28,9 +28,9 @@ vim.opt.breakindent = true
 -- copy indent from current line when starting new one
 vim.opt.autoindent = true
 -- Makes the tab key insert 2 spaces when pressed
-vim.opt.softtabstop = 2
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 
 -- Save undo history
 vim.opt.undofile = true
