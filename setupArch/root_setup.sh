@@ -41,6 +41,8 @@ pacman -Sy \
   bluez \
   bluez-util \
   brightnessctl \
+  ddcutil \
+  fail2ban \
   git \
   hyprlock \
   iptables-nft \
