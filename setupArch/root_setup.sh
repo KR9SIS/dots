@@ -58,6 +58,7 @@ pacman -Sy \
   pavucontrol \
   swaync \
   timeshift \
+  tlp \
   ttf-font-awesome \
   ufw \
   waybar \
@@ -91,6 +92,10 @@ pacman -S \
   stow \
   vlc \
   wireshark-qt
+
+# Enable tlp battery power service
+systemctl enable tlp.service
+tlp start
 
 # Enable pacman weekly cache cleanup
 systemctl enable paccache.timer
