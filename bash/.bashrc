@@ -19,9 +19,15 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 fortune -ace
 eval "$(starship init bash)"
 
-if [ $(pgrep "ssh-agent" -c) -eq 0 ]; then
-    eval "$(ssh-agent)" >/dev/null 2>&1
-fi
+# if [ $(pgrep "ssh-agent" -c) -eq 0 ]; then
+eval "$(ssh-agent)" >/dev/null 2>&1
+# export SSH_AGENT_PID
+# export SSH_AUTH_SOCK
+#     echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >/home/kr9sis/.ssh/auth_sock_info
+#     echo "SSH_AGENT_PID=$SSH_AGENT_PID" >>/home/kr9sis/.ssh/auth_sock_info
+# else
+#     . /home/kr9sis/.ssh/auth_sock_info
+# fi
 
 # isGitRepo() {
 #   if command -v git >/dev/null 2>&1 && git rev-parse --git-dir >/dev/null 2>&1; then
