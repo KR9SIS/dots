@@ -47,4 +47,4 @@ mkdir -p "$HOME/.virtualenvs"
 python -m venv "$HOME/.virtualenvs/debugpy/" || python3 -m venv "$HOME/.virtualenvs/debugpy/"
 
 # Downloads files from backup to this PC
-rsync -avP server@192.168.1.9:/home/server/drive "$HOME"
+./backup_drive_get.sh
