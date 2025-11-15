@@ -1,96 +1,144 @@
 {
+  "reload_style_on_change": true,
+  "layer": "top",
   "position": "top",
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock"],
+  "spacing": 0,
+  "height": 35,
+  "modules-left": ["custom/omarchy", "hyprland/workspaces"],
+  "modules-center": ["clock", "custom/update", "custom/screenrecording-indicator"],
   "modules-right": [
-    "tray",
-    "temperature",
-    "cpu",
-    "memory",
+    "group/tray-expander",
+    // "tray",
+    "bluetooth",
+    "network",
     "pulseaudio",
     "battery",
-    "hyprland/language",
-    "custom/power",
+    "hyprland/language"
   ],
-  "clock": {
-    "format": "{:%a %d %H:%M (%Z)}",
-    "locale": "is_IS.utf8",
-    "tooltip-format": "<tt><big>{calendar}\n\n{tz_list}</big></tt>",
-    "timezones": ["Atlantic/Reykjavik", "Europe/Copenhagen"],
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 4,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#d3d3d3'><b>{}</b></span>",
-        "days": "<span color='#d3d3d3'><b>{}</b></span>",
-        "weeks": "<span color='#89b4fa'><b>W{}</b></span>",
-        "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
-        "today": "<span color='#f9e2af'><b><u>{}</u></b></span>",
-      },
-    },
-  },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 10,
-    "icons": {
-      "blueman": "bluetooth",
-    },
-  },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": ["", "", ""],
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": true,
-  },
-  "memory": {
-    "interval": 30,
-    "format": "{percentage}% ",
-  },
-  "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{volume}% {icon}   {format_source}",
-    "format-bluetooth-muted": " {icon}   {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
     "format-icons": {
-      "default": ["", "", " "],
-    },
-    "on-click": "pavucontrol",
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15,
-    },
-    "format": "{icon}  {capacity}%",
-    "format-warning": "{icon}  {capacity}%",
-    "format-critical": "{icon}  {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon}  {time}",
-    "format-full": "  {capacity}%",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}",
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "active": "󱓻"
+    }
   },
   "hyprland/language": {
     "format": "{short}",
   },
-  "custom/power": {
-    "format": "⏻ ",
+  "custom/omarchy": {
+    "format": "<span font='omarchy'>\ue900</span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+  },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
+  },
+
+  "cpu": {
+    "interval": 30,
+    "format": "{icon0} {icon1}",
+    "format-icons": ["","󰍛"],
+    "on-click": "xdg-terminal-exec btop"
+  },
+    "memory": {
+    "interval": 30,
+    "format": "{percentage}% ",
+    "on-click": "xdg-terminal-exec btop"
+  },
+  "clock": {
+    "format": "{:L%a %d %b %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
-    "menu": "on-click",
-    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-    "menu-actions": {
-      "shutdown": "poweroff",
-      "reboot": "reboot",
-      "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate",
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "on-click": "omarchy-menu power",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueberry"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "xdg-terminal-exec --app-id=com.omarchy.Wiremix -e wiremix",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "tooltip": false,
+    "exec": "/home/kr9sis/.config/waybar/tray/icon.sh",
+    "signal": 9,
+    "return-type": "json"
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 17,
+  },
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json"
   },
 }

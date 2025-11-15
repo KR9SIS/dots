@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/env bash
 
 while ! (hyprctl clients | grep "initialClass: brave-browser") && (hyprctl clients | grep "initialClass: kitty") && (hyprctl clients | grep "initialClass: discord") && (hyprctl clients | grep "initialClass: Spotify"); do
   sleep 0.2

@@ -24,7 +24,3 @@ source = ~/.config/hypr/autostart.conf
 # windowrule = workspace 5, class:qemu
 
 
-
-
-monitor=eDP-1,2560x1600@60.00,5430x1440,1.60
-monitor=HDMI-A-1,1920x1080@60.00,4800x320,1.00
