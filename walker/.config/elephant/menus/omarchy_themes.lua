@@ -1,0 +1,1 @@
+/home/kr9sis/.local/share/omarchy/default/elephant/omarchy_themes.lua
