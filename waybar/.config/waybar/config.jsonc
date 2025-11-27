@@ -65,7 +65,18 @@
   "clock": {
     "format": "{:L%a %d %b %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{calendar}",
+    "timezones": ["Atlantic/Reykjavik", "Europe/Copenhagen"],
+    "calendar": {
+      "weeks-pos": "right",
+      "format": {
+        "months": "<b>{}</b>",
+        "weeks": "<span color='#f38d70'>W{:%V}</span>", // Orange color
+        "weekdays": "<span color='#f38d70'>{}</span>",  // Orange color
+        "today": "<span color='#f9cc6c'>{}</span>",     // Yellow color
+      },
+    },
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
   "network": {
