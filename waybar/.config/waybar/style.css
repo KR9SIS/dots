@@ -58,6 +58,8 @@
 
 tooltip {
   padding: 2px;
+  border: 1px solid #f38d70; /* orange color */
+  border-radius: 5px;
 }
 
 #custom-update {
