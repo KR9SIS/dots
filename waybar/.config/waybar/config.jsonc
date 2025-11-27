@@ -72,6 +72,7 @@
       "weeks-pos": "right",
       "format": {
         "months": "<b>{}</b>",
+        "days": "<span size='14pt'>{}</span>",
         "weeks": "<span color='#f38d70'>W{:%V}</span>", // Orange color
         "weekdays": "<span color='#f38d70'>{}</span>",  // Orange color
         "today": "<span color='#f9cc6c'>{}</span>",     // Yellow color
