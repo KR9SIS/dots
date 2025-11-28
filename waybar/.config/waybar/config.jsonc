@@ -142,7 +142,7 @@
   },
   "custom/expand-icon": {
     "tooltip": false,
-    "exec": "/home/kr9sis/.config/waybar/tray/icon.sh",
+    "exec": "/home/kr9sis/.config/waybar/scripts/tray_icon.sh",
     "signal": 9,
     "return-type": "json"
   },
