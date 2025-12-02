@@ -74,15 +74,15 @@ return {
                         vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                     end
 
-                    --[[
                     -- Rename the variable under your cursor.
                     --  Most Language Servers support renaming across files, etc.
-                    map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+                    map("cr", vim.lsp.buf.rename, "[R]ename")
 
                     -- Execute a code action, usually your cursor needs to be on top of an error
                     -- or a suggestion from your LSP for this to activate.
-                    map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+                    map("ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 
+                    --[[
                     -- Find references for the word under your cursor.
                     map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
@@ -112,7 +112,6 @@ return {
                     --  the definition of its *type*, not where it was *defined*.
                     map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
                     ]]
-
                     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
                     ---@param client vim.lsp.Client
                     ---@param method vim.lsp.protocol.Method
