@@ -28,94 +28,6 @@ return {
         "leoluz/nvim-dap-go",
         "mfussenegger/nvim-dap-python",
     },
-    keys = {
-        -- Basic debugging keymaps, feel free to change to your liking!
-        {
-            "<F5>",
-            function()
-                require("dap").continue()
-            end,
-            desc = "Debug: Start/Continue",
-        },
-        {
-            "<leader>dc",
-            function()
-                require("dap").continue()
-            end,
-            desc = "Debug: Start/Continue",
-        },
-        {
-            "<F1>",
-            function()
-                require("dap").step_into()
-            end,
-            desc = "Debug: Step Into",
-        },
-        {
-            "<leader>di",
-            function()
-                require("dap").step_into()
-            end,
-            desc = "Debug: Step Into",
-        },
-        {
-            "<leader>do",
-            function()
-                require("dap").step_over()
-            end,
-            desc = "Debug: Step Over",
-        },
-        {
-            "<F2>",
-            function()
-                require("dap").step_over()
-            end,
-            desc = "Debug: Step Over",
-        },
-        {
-            "<leader>dt",
-            function()
-                require("dap").step_out()
-            end,
-            desc = "Debug: Step Out",
-        },
-        {
-            "<F3>",
-            function()
-                require("dap").step_out()
-            end,
-            desc = "Debug: Step Out",
-        },
-        {
-            "<leader>db",
-            function()
-                require("dap").toggle_breakpoint()
-            end,
-            desc = "Debug: Toggle Breakpoint",
-        },
-        {
-            "<leader>dB",
-            function()
-                require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-            end,
-            desc = "Debug: Set Breakpoint",
-        },
-        -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-        {
-            "<leader>du",
-            function()
-                require("dapui").toggle()
-            end,
-            desc = "Debug: Toggle Dap UI",
-        },
-        {
-            "<F7>",
-            function()
-                require("dapui").toggle()
-            end,
-            desc = "Debug: Toggle Dap UI",
-        },
-    },
     config = function()
         local dap = require("dap")
         local dapui = require("dapui")
@@ -238,4 +150,93 @@ return {
         })
         require("dap-python").setup("/home/kr9sis/.virtualenv/debugpy/bin/python")
     end,
+
+    keys = {
+        -- Basic debugging keymaps, feel free to change to your liking!
+        {
+            "<F5>",
+            function()
+                require("dap").continue()
+            end,
+            desc = "Debug: Start/Continue",
+        },
+        {
+            "<leader>dc",
+            function()
+                require("dap").continue()
+            end,
+            desc = "Debug: Start/Continue",
+        },
+        {
+            "<F1>",
+            function()
+                require("dap").step_into()
+            end,
+            desc = "Debug: Step Into",
+        },
+        {
+            "<leader>di",
+            function()
+                require("dap").step_into()
+            end,
+            desc = "Debug: Step Into",
+        },
+        {
+            "<leader>do",
+            function()
+                require("dap").step_over()
+            end,
+            desc = "Debug: Step Over",
+        },
+        {
+            "<F2>",
+            function()
+                require("dap").step_over()
+            end,
+            desc = "Debug: Step Over",
+        },
+        {
+            "<leader>dt",
+            function()
+                require("dap").step_out()
+            end,
+            desc = "Debug: Step Out",
+        },
+        {
+            "<F3>",
+            function()
+                require("dap").step_out()
+            end,
+            desc = "Debug: Step Out",
+        },
+        {
+            "<leader>db",
+            function()
+                require("dap").toggle_breakpoint()
+            end,
+            desc = "Debug: Toggle Breakpoint",
+        },
+        {
+            "<leader>dB",
+            function()
+                require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+            end,
+            desc = "Debug: Set Breakpoint",
+        },
+        -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+        {
+            "<leader>du",
+            function()
+                require("dapui").toggle()
+            end,
+            desc = "Debug: Toggle Dap UI",
+        },
+        {
+            "<F7>",
+            function()
+                require("dapui").toggle()
+            end,
+            desc = "Debug: Toggle Dap UI",
+        },
+    },
 }
