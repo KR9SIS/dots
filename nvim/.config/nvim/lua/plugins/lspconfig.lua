@@ -221,6 +221,7 @@ return {
                 -- clangd = {},
                 gopls = {},
                 pyright = {},
+                bashls = {},
                 lua_ls = {
                     -- cmd = { ... },
                     -- filetypes = { ... },
