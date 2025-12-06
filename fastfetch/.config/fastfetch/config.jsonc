@@ -2,12 +2,10 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "auto",
-    "source": "./toothless.png",
+    "source": "~/dots/fastfetch/.config/fastfetch/toothless.png",
     "width": 50,
     "padding": {
       "top": 3,
-      // "right": 6,
-      // "left": 2
     }
   },
   "modules": [
