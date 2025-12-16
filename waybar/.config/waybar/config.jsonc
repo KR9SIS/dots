@@ -67,7 +67,6 @@
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": true,
     "tooltip-format": "{calendar}",
-    "timezones": ["Atlantic/Reykjavik", "Europe/Copenhagen"],
     "calendar": {
       "weeks-pos": "right",
       "format": {
