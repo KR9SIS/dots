@@ -6,7 +6,7 @@ while ! \
   sleep 0.2
 done
 
-sleep 5
+sleep 10
 
 hyprctl dispatch workspace 1
 
