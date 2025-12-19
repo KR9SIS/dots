@@ -8,9 +8,11 @@ source ~/.local/share/omarchy/default/bash/rc
 # Add your own exports, aliases, and functions here.
 #
 # Make an alias for invoking commands you use constantly
-# alias p='python'
-alias l='ls -lahF'
-alias rvk='cd ~/drive/School/RVK_UNI/'
+# File system
+if command -v eza &> /dev/null; then
+  alias ls='eza --group-directories-first --icons=auto'
+  alias l='eza -lahF --group-directories-first --icons=auto'
+fi
 
 bind -f ~/.inputrc
 
