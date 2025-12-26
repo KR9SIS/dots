@@ -220,7 +220,7 @@ return {
             local servers = {
                 -- clangd = {},
                 gopls = {},
-                pyright = {},
+                basedpyright = {},
                 bashls = {},
                 lua_ls = {
                     -- cmd = { ... },
