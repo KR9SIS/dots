@@ -33,13 +33,13 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 markdown = { "markdownlint" },
-                -- Conform can also run multiple formatters sequentially
                 python = { "autopep8" },
-                json = { "jq" },
-                jsonc = { "prettier" },
+                json = { "prettierd" },
+                jsonc = { "prettierd" },
                 bash = { "shfmt" },
                 go = { "gofumpt" },
                 --
+                -- Conform can also run multiple formatters sequentially
                 -- You can use 'stop_after_first' to run the first available formatter from the list
                 typescript = { "prettierd", "prettier", stop_after_first = true },
                 vue = { "prettierd", "prettier", stop_after_first = true },
