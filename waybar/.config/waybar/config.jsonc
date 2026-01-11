@@ -72,9 +72,9 @@
       "format": {
         "months": "<b>{}</b>",
         "days": "<span size='14pt'>{}</span>",
-        "weeks": "<span color='#f38d70'>W{:%V}</span>", // Orange color
-        "weekdays": "<span color='#f38d70'>{}</span>",  // Orange color
-        "today": "<span color='#f9cc6c'>{}</span>",     // Yellow color
+        "weeks": "<span color='#d4bd99'>W{:%V}</span>",
+        "weekdays": "<span color='#d4bd99'>{}</span>",
+        "today": "<span color='#cc241d'>{}</span>",
       },
     },
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
