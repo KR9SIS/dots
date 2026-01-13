@@ -41,6 +41,7 @@ return {
                 "debugpy",
                 "dap-python",
                 "dap-go",
+                "codelldb",
             },
         })
 
