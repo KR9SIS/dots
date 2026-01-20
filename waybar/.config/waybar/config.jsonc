@@ -64,10 +64,10 @@
   },
   "clock": {
     "format": "{:L%a %d %b %H:%M}",
-    "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": true,
     "tooltip-format": "{calendar}",
     "calendar": {
+      "mode-mon-col": 3,
       "weeks-pos": "right",
       "format": {
         "months": "<b>{}</b>",
@@ -77,7 +77,13 @@
         "today": "<span color='#cc241d'>{}</span>",
       },
     },
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    "actions": {
+      "on-click": "mode", // left-click → toggle year ↔ month
+      "on-scroll-up": "shift_up", // scroll up   → future year/month
+      "on-scroll-down": "shift_down", // scroll down → past year/month
+      "on-click-middle": "shift_reset", // middle-click → jump back to today / current view
+    },
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
