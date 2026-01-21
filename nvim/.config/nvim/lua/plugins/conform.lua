@@ -36,6 +36,7 @@ return {
                 python = { "autopep8" },
                 json = { "prettierd" },
                 jsonc = { "prettierd" },
+                css = { "prettierd" },
                 bash = { "shfmt" },
                 go = { "gofumpt" },
                 c = { "clang-format" },

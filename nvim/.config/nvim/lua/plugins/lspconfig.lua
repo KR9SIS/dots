@@ -222,6 +222,7 @@ return {
                 gopls = {},
                 basedpyright = {},
                 bashls = {},
+                cssls = {},
                 lua_ls = {
                     -- cmd = { ... },
                     -- filetypes = { ... },
