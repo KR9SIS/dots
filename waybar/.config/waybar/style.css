@@ -7,7 +7,7 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: 'CaskaydiaMono Nerd Font';
+  font-family: "CaskaydiaMono Nerd Font";
   font-size: 12px;
 }
 
@@ -40,13 +40,44 @@
   margin: 0 7.5px;
 }
 
+/* --- Animations --- */
+@keyframes blink {
+  to {
+    color: @background;
+  }
+}
+@keyframes blink2 {
+  to {
+    background-color: #fb4934;
+  }
+}
+
+/* --- Battery states --- */
 #battery.warning:not(.charging) {
+  animation: blink 0.5s steps(12) infinite alternate;
+  border-radius: 12px;
+  padding: 0 10px;
+  border: 2px solid #fabd2f;
   color: #fabd2f;
 }
 
 #battery.critical:not(.charging) {
-  color: #fb4934;
+  animation: blink2 0.5s steps(12) infinite alternate;
+  border-radius: 12px;
+  padding: 0 10px;
 }
+
+/* WARN: doesn't work yet */
+/* --- Waybar battery status states --- */
+/* window#waybar.warning:not(.charging) #battery { */
+/*   background-color: #fabd2f; */
+/*   color: #000000; */
+/* } */
+/* window#waybar.critical:not(.charging) #battery { */
+/*   background-color: #fb4934; */
+/*   color: #000000; */
+/*   animation: blink2 0.5s steps(12) infinite alternate; */
+/* } */
 
 #tray {
   margin-right: 16px;
