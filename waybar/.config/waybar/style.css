@@ -67,6 +67,10 @@
   padding: 0 10px;
 }
 
+#battery.full {
+  color: #00b000;
+}
+
 /* WARN: doesn't work yet */
 /* --- Waybar battery status states --- */
 /* window#waybar.warning:not(.charging) #battery { */
