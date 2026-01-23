@@ -1,6 +1,6 @@
 add_newline     = true
 command_timeout = 200
-format          = "[$directory$git_branch$git_status]($style)$character"
+format          = "[$directory$git_branch$git_status]($style)$character$status"
 palette = 'theme'
 
 [palettes.theme]
@@ -11,7 +11,7 @@ error_symbol    = "[✗](bold theme_color)"
 success_symbol  = "[❯](bold theme_color)"
 
 [directory]
-truncation_length = 2
+truncation_length = 3
 truncation_symbol = "…/"
 style             = "theme_color"
 repo_root_style   = "bold theme_color"
@@ -31,7 +31,12 @@ conflicted = " "
 up_to_date = " "
 untracked  = "? "
 modified   = " "
-stashed    = ""
-staged     = ""
-renamed    = ""
-deleted    = ""
+stashed    = " "
+staged     = "+ "
+renamed    = "R "
+deleted    = "✘ "
+
+[status]
+style = 'theme_color'
+format = '[\[$status $common_meaning$signal_name\]]($style) '
+disabled = false
