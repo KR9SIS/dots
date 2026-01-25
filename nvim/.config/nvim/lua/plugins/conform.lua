@@ -14,6 +14,7 @@ return {
             },
         },
         opts = {
+            log_level = vim.log.levels.WARN,
             notify_on_error = true,
             -- format_on_save = function(bufnr)
             --     -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -37,17 +38,25 @@ return {
                 json = { "prettierd" },
                 jsonc = { "prettierd" },
                 css = { "prettierd" },
+                typescript = { "prettierd" },
+                vue = { "prettierd" },
                 bash = { "shfmt" },
                 go = { "gofumpt" },
                 c = { "clang-format" },
                 cpp = { "clang-format" },
                 make = { "bake" },
-                --
+
                 -- Conform can also run multiple formatters sequentially
                 -- You can use 'stop_after_first' to run the first available formatter from the list
-                typescript = { "prettierd", "prettier", stop_after_first = true },
-                vue = { "prettierd", "prettier", stop_after_first = true },
+                -- typescript = { "prettierd", "prettier", stop_after_first = true },
             },
+            -- formatters = {
+            --     prettierd = {
+            --         prepend_args = function()
+            --             return { "--trailing-comma none" }
+            --         end,
+            --     },
+            -- },
         },
     },
 }
