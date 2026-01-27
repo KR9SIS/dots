@@ -5,7 +5,7 @@
     "source": "~/dots/fastfetch/.config/fastfetch/toothless.png",
     "width": 50,
     "padding": {
-      "top": 3,
+      "top": 3
     }
   },
   "modules": [
