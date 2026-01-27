@@ -55,7 +55,6 @@
     "signal": 7,
     "interval": "once"
   },
-
   "cpu": {
     "interval": 30,
     "format": "{icon0} {icon1}",
@@ -109,7 +108,7 @@
     "format-charging": "{icon}",
     "format-plugged": "",
     "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰁹"],
       "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "format-full": "󰂅",
@@ -119,7 +118,7 @@
     "on-click": "omarchy-menu power",
     "states": {
       "full": 100,
-      "default": 99,
+      "default": 95,
       "warning": 30,
       "critical": 10
     }
