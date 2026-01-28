@@ -121,6 +121,12 @@
       "default": 95,
       "warning": 30,
       "critical": 10
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u critical '⚡ Time to recharge! Battery is down to 30%'",
+      "on-discharging-critical": "notify-send -u critical'⚡ RECHARGE NOW! Battery is down to 10%'",
+      "on-charging-default": "notify-send -u normal '⚡ AC Connected!' 'Charging '",
+      "on-charging-full": "notify-send -u normal '󰁹 Battery Full!' '100% – Unplug charger 󰚦'"
     }
   },
   "bluetooth": {
