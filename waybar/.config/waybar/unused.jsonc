@@ -1,0 +1,27 @@
+{
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "tooltip": false,
+    "exec": "/home/kr9sis/.config/waybar/scripts/tray_icon.sh",
+    "signal": 9,
+    "return-type": "json"
+  },
+  "cpu": {
+    "interval": 30,
+    "format": "{icon0} {icon1}",
+    "format-icons": ["", "󰍛"],
+    "on-click": "omarchy-launch-or-focus-tui btop"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{percentage}% ",
+    "on-click": "omarchy-launch-or-focus-tui btop"
+  }
+}
