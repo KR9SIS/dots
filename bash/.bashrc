@@ -18,3 +18,7 @@ fi
 bind -f ~/.inputrc
 
 source ~/.bash_functions
+# set PATH so it includes user's private bin if it exists
+if [ -d "/home/kr9sis/.local/bin/" ]; then
+  PATH="/home/kr9sis/.local/bin:$PATH"
+fi
