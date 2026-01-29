@@ -38,5 +38,5 @@ deleted    = "✘ "
 
 [status]
 style = 'theme_color'
-format = '[\[$status $common_meaning$signal_name\]]($style) '
+format = '[\[$status\]]($style) '
 disabled = false
