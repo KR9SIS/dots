@@ -18,7 +18,7 @@ setup_app 3 "vesktop" 5
 
 hyprctl dispatch workspace 1
 
-if hyprctl monitors | grep "description: ASR PG34WQ15R2B"; then
+if hyprctl monitors | grep -q "(ID 1)"; then
   hyprctl dispatch moveworkspacetomonitor "2 eDP-1"
   hyprctl dispatch movecurrentworkspacetomonitor +1 # Move workspace 1 to second monitor
 fi
