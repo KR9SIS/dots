@@ -3,14 +3,14 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "auto",
-    "source": "~/dots/fastfetch/.config/fastfetch/toothless.png",
+    "source": "$HOME/.config/fastfetch/toothless.png",
     "padding": {
       "top": 2
     }
   },
   "display": {
     "separator": " ",
-    "showErrors": false
+    "showErrors": true
   },
   "modules": [
     {
@@ -47,11 +47,7 @@
     {
       "key": "│ {#34}  {#39}term    {#keys}│",
       "type": "command",
-      "text": "./scripts/term_shell.sh"
-    },
-    {
-      "key": "│ {#33}󰂉  {#39}battery {#keys}│",
-      "type": "battery"
+      "text": "$HOME/.config/fastfetch/scripts/term_shell.sh"
     },
     {
       "key": "│ {#33}󰉉  {#39}disk    {#keys}│",
@@ -59,16 +55,16 @@
       "folders": "/"
     },
     {
-      "key": "│ {#35}󰩟  {#39}network {#keys}│",
-      "type": "localip",
-      "format": "{ipv4} [{ifname}]"
+      "key": "│ {#33}󰖩  {#39}wifi    {#keys}│",
+      "type": "wifi",
+      "format": "{ssid} ({signal-quality}) {protocol}"
     },
-    // {
-    //   "key": "├────────────┤",
-    //   "type": "custom"
-    // },
     {
-      "key": "│ {#35}  {#39}colors  {#keys}│",
+      "key": "│ {#39}󰂉  {#39}battery {#keys}│",
+      "type": "battery"
+    },
+    {
+      "key": "│ {#39}  colors  {#keys}│",
       "type": "colors",
       "symbol": "circle"
     },
