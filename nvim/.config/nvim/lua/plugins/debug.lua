@@ -80,19 +80,19 @@ return {
                     elements = {
                         {
                             id = "scopes",
-                            size = 0.25,
+                            size = 0.65,
                         },
                         {
                             id = "breakpoints",
-                            size = 0.25,
+                            size = 0.15,
                         },
                         {
                             id = "stacks",
-                            size = 0.25,
+                            size = 0.10,
                         },
                         {
                             id = "watches",
-                            size = 0.25,
+                            size = 0.10,
                         },
                     },
                     position = "left",
@@ -102,11 +102,11 @@ return {
                     elements = {
                         {
                             id = "repl",
-                            size = 0.5,
+                            size = 0.3,
                         },
                         {
                             id = "console",
-                            size = 0.5,
+                            size = 0.7,
                         },
                     },
                     position = "bottom",
