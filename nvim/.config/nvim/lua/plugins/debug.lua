@@ -83,7 +83,7 @@ return {
                             size = 0.65,
                         },
                         {
-                            id = "breakpoints",
+                            id = "watches",
                             size = 0.15,
                         },
                         {
@@ -91,7 +91,7 @@ return {
                             size = 0.10,
                         },
                         {
-                            id = "watches",
+                            id = "breakpoints",
                             size = 0.10,
                         },
                     },
@@ -119,9 +119,22 @@ return {
             },
         })
 
-        dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-        -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-        -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+            local set = vim.keymap.set
+            set("n", "<Right>", dap.step_into)
+            set("n", "<Down>", dap.step_over)
+            set("n", "<Left>", dap.step_out)
+            set("n", "<Up>", dap.terminate)
+            dapui.open()
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+            local del = vim.keymap.del
+            del("n", "<Right>")
+            del("n", "<Down>")
+            del("n", "<Left>")
+            del("n", "<Up>")
+            dapui.close()
+        end
 
         -- Install golang specific config
         require("dap-go").setup({})
@@ -131,13 +144,6 @@ return {
     keys = {
         -- Basic debugging keymaps, feel free to change to your liking!
         {
-            "<F5>",
-            function()
-                require("dap").continue()
-            end,
-            desc = "Debug: Start/Continue",
-        },
-        {
             "<leader>dc",
             function()
                 require("dap").continue()
@@ -145,46 +151,11 @@ return {
             desc = "Debug: Start/Continue",
         },
         {
-            "<F1>",
+            "<leader>dr",
             function()
-                require("dap").step_into()
+                require("dap").restart()
             end,
-            desc = "Debug: Step Into",
-        },
-        {
-            "<leader>di",
-            function()
-                require("dap").step_into()
-            end,
-            desc = "Debug: Step Into",
-        },
-        {
-            "<leader>do",
-            function()
-                require("dap").step_over()
-            end,
-            desc = "Debug: Step Over",
-        },
-        {
-            "<F2>",
-            function()
-                require("dap").step_over()
-            end,
-            desc = "Debug: Step Over",
-        },
-        {
-            "<leader>dt",
-            function()
-                require("dap").step_out()
-            end,
-            desc = "Debug: Step Out",
-        },
-        {
-            "<F3>",
-            function()
-                require("dap").step_out()
-            end,
-            desc = "Debug: Step Out",
+            desc = "Debug: Restart",
         },
         {
             "<leader>db",
@@ -203,13 +174,6 @@ return {
         -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
         {
             "<leader>du",
-            function()
-                require("dapui").toggle()
-            end,
-            desc = "Debug: Toggle Dap UI",
-        },
-        {
-            "<F7>",
             function()
                 require("dapui").toggle()
             end,
