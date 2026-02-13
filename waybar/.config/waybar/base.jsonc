@@ -36,7 +36,7 @@
     "on-click": "omarchy-menu power",
     "states": {
       "full": 100,
-      "default": 95,
+      "default": 80,
       "warning": 30,
       "critical": 10
     }

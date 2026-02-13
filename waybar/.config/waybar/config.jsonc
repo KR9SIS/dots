@@ -7,8 +7,8 @@
       "events": {
         "on-discharging-warning": "notify-send '⚡ Time to recharge!' 'Battery is down to 30%' -u critical",
         "on-discharging-critical": "notify-send '⚡ RECHARGE NOW!' 'Battery is down to 10%' -u critical",
-        "on-charging-default": "./scripts/charging.sh '⚡ Time to recharge!' '⚡ RECHARGE NOW!'",
-        "on-charging-full": "notify-send '󰁹 Battery Full!' '100% – Unplug charger 󰚦' -u normal"
+        "on-charging-default": "$HOME/.config/waybar/scripts/charging.sh '⚡ Time to recharge!' '⚡ RECHARGE NOW!'",
+        "on-charging-full": "notify-send '󰁹 Battery Full!' 'Unplug charger 󰚦' -u normal"
       }
     }
   },
