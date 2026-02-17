@@ -7,6 +7,7 @@
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
   "modules-center": [
     "clock",
+    "custom/termWeek",
     "custom/update",
     "custom/voxtype",
     "custom/screenrecording-indicator"
@@ -145,6 +146,10 @@
     "tooltip": true,
     "on-click-right": "omarchy-voxtype-config",
     "on-click": "omarchy-voxtype-model"
+  },
+  "custom/termWeek": {
+    "exec": "$HOME/.config/waybar/scripts/termWeek",
+    "return-type": "json"
   },
   "tray": {
     "icon-size": 12,
