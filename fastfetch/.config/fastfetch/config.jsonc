@@ -5,7 +5,7 @@
     "type": "auto",
     "source": "$HOME/.config/fastfetch/toothless.png",
     "padding": {
-      "top": 2
+      "top": 1
     }
   },
   "display": {
