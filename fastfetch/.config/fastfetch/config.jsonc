@@ -18,58 +18,58 @@
       "type": "custom"
     },
     {
-      "key": "╭────────────╮",
+      "key": "╭─────────╮",
       "type": "custom"
     },
     {
-      "key": "│ {#31}  {#39}user    {#keys}│",
+      "key": "│ {#31}  {#39}user {#keys}│",
       "type": "title",
       "format": "{user-name}"
     },
     {
-      "key": "│ {#31}  {#39}host    {#keys}│",
+      "key": "│ {#31}  {#39}host {#keys}│",
       "type": "title",
       "format": "{host-name}"
     },
     {
-      "key": "│ {#32}\ue900  {#39}distro  {#keys}│",
+      "key": "│ {#32}\ue900  {#39}dist {#keys}│",
       "type": "command",
       "text": "version=$(omarchy-version); echo \"Omarchy $version\""
     },
     {
-      "key": "│ {#32}  {#39}kernel  {#keys}│",
+      "key": "│ {#32}  {#39}kern {#keys}│",
       "type": "kernel"
     },
     {
-      "key": "│ {#34}󰇄  {#39}comp    {#keys}│",
+      "key": "│ {#34}󰇄  {#39}comp {#keys}│",
       "type": "wm"
     },
     {
-      "key": "│ {#34}  {#39}term    {#keys}│",
+      "key": "│ {#34}  {#39}term {#keys}│",
       "type": "command",
       "text": "$HOME/.config/fastfetch/scripts/term_shell.sh"
     },
     {
-      "key": "│ {#33}󰉉  {#39}disk    {#keys}│",
+      "key": "│ {#33}󰉉  {#39}disk {#keys}│",
       "type": "disk",
       "folders": "/"
     },
     {
-      "key": "│ {#33}󰖩  {#39}wifi    {#keys}│",
+      "key": "│ {#33}󰖩  {#39}wifi {#keys}│",
       "type": "wifi",
       "format": "{ssid} ({signal-quality}) {protocol}"
     },
     {
-      "key": "│ {#39}󰂉  {#39}battery {#keys}│",
+      "key": "│ {#39}󰂉  {#39}batt {#keys}│",
       "type": "battery"
     },
     {
-      "key": "│ {#39}  colors  {#keys}│",
+      "key": "│ {#39}  cols {#keys}│",
       "type": "colors",
       "symbol": "circle"
     },
     {
-      "key": "╰────────────╯",
+      "key": "╰─────────╯",
       "type": "custom"
     }
   ]
