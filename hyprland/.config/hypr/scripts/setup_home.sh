@@ -6,7 +6,7 @@ setup_app() {
   local sleep_len=$3
 
   while ! (hyprctl clients | grep -q "class: $class"); do
-    sleep 0.2 # simple and inefficient busy waiting loop
+    sleep 0.2 # simple and semi inefficient busy waiting loop
   done
   sleep "$sleep_len"
   hyprctl dispatch movetoworkspacesilent "$workspace", "class:$class"
@@ -19,6 +19,6 @@ setup_app 3 "vesktop" 5
 hyprctl dispatch workspace 1
 
 if hyprctl monitors | grep -q "(ID 1)"; then
-  hyprctl dispatch moveworkspacetomonitor "2 eDP-1"
-  hyprctl dispatch movecurrentworkspacetomonitor +1 # Move workspace 1 to second monitor
+  hyprctl dispatch moveworkspacetomonitor "2 0" # Move workspace 2 aka kitty to monitor 0 aka built in
+  hyprctl dispatch moveworkspacetomonitor "1 1" # Move workspace 1 aka brave-browser to monitor 1 aka second monitor
 fi
