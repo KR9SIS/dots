@@ -3,4 +3,4 @@
 # sourced on login
 #
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"

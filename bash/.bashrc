@@ -3,7 +3,7 @@
 
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
-source ~/.local/share/omarchy/default/bash/rc
+source "$HOME/.local/share/omarchy/default/bash/rc"
 
 # Add your own exports, aliases, and functions here.
 #
@@ -19,7 +19,7 @@ alias grep='grep --color=auto'
 
 bind -f ~/.inputrc
 
-source ~/.bash_functions
+source "$HOME/.bash_functions"
 # set PATH so it includes user's private bin if it exists
 if [ -d "/home/kr9sis/.local/bin/" ]; then
   PATH="/home/kr9sis/.local/bin:$PATH"
