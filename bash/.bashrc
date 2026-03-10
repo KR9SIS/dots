@@ -15,6 +15,8 @@ if command -v eza &>/dev/null; then
   alias la='eza -lahF --group-directories-first --icons=auto'
 fi
 
+alias grep='grep --color=auto'
+
 bind -f ~/.inputrc
 
 source ~/.bash_functions
