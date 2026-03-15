@@ -34,7 +34,6 @@
 #battery,
 #pulseaudio,
 #custom-omarchy,
-
 #custom-update {
   min-width: 12px;
   margin: 0 7.5px;
@@ -104,7 +103,6 @@ tooltip {
 .hidden {
   opacity: 0;
 }
-
 
 #custom-screenrecording-indicator,
 #custom-idle-indicator,
