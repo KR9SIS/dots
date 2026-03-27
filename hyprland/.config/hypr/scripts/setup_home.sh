@@ -3,18 +3,22 @@
 setup_app() {
   local workspace=$1
   local class=$2
-  local sleep_len=$3
+  local title=$3
 
-  while ! (hyprctl clients | grep -q "class: $class"); do
+  while ! (
+    hyprctl clients -j | jq -r --arg c "$class" --arg t "$title" '
+      .[]|select(.class==$c)|.title==$t '
+  ); do       # checking floating for vesktop
     sleep 0.2 # simple and semi inefficient busy waiting loop
   done
-  sleep "$sleep_len"
+
+  sleep 1
   hyprctl dispatch movetoworkspacesilent "$workspace", "class:$class"
 }
 
-setup_app 1 "brave-browser" 1
-setup_app 2 "kitty" 1
-setup_app 3 "vesktop" 5
+setup_app 1 "brave-browser" "New tab - Brave"
+setup_app 2 "kitty" "~"
+setup_app 3 "vesktop" "Discord | Friends"
 
 hyprctl dispatch workspace 1
 
