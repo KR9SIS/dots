@@ -16,6 +16,7 @@ if command -v eza &>/dev/null; then
 fi
 
 alias grep='grep --color=auto'
+alias ffe="fzf --preview 'bat --style=numbers --color=always {}' -e"
 
 bind -f ~/.inputrc
 
