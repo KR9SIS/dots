@@ -1,0 +1,5 @@
+#!/bin/env bash
+
+while (fastfetch --logo none --structure wifi | grep -q 'Wifi up'); do
+  sleep 1
+done
