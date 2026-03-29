@@ -1,0 +1,8 @@
+#!/bin/env bash
+
+while (fastfetch --logo none --structure wifi | grep -q '󰖩 '); do
+  sleep 1
+done
+
+clear && fastfetch
+exec bash
