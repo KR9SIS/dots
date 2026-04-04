@@ -5,10 +5,3 @@
 
 # Example: Show the name of the theme that was just set.
 # notify-send "New theme" "Your new theme is $1"
-
-# Make sure to update the mako config with my updates
-# after theme change destroys it
-cat "$HOME/.config/mako/my_config" >>"$HOME/.config/mako/config"
-
-# Rename previous backgrounds folder to current theme for theme agnostic backgrounds
-cd "$HOME/.config/omarchy/backgrounds" && mv ./* "$1"
