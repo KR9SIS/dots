@@ -11,7 +11,7 @@ setup_app() {
   while ! window=$(hyprctl clients -j | jq -r --arg c "$class" --arg t "$title" \
     '.[]|select(.class==$c and (.title | test($t; "i")))|.address' | head -1) || [[ -z "$window" ]]; do
     sleep "$s_len"
-    s_len=$((s_len * 2))
+    s_len=$((s_len + 1))
   done
 
   hyprctl dispatch movetoworkspacesilent "$workspace", "address:$window"
