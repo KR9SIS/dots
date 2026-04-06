@@ -1,1 +1,9 @@
-/home/kr9sis/.config/omarchy/current/theme/neovim.lua
+return {
+	{ "rebelot/kanagawa.nvim" },
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "kanagawa",
+		},
+	},
+}

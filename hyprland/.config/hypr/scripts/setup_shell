@@ -1,9 +1,0 @@
-#!/bin/env bash
-
-while ! (fastfetch --logo none --structure wifi | grep -qE 'Wifi .+ - .+ GHz .+'); do
-  fastfetch --logo none --structure wifi
-  sleep 1
-done
-
-clear && fastfetch
-exec bash
