@@ -1,0 +1,71 @@
+// Inspired by Catnap
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "small",
+    "padding": {
+      "top": 2,
+      "right": 1
+    }
+  },
+  "display": {
+    "separator": " ",
+    "showErrors": true
+  },
+  "modules": [
+    {
+      "key": "╭─────────╮",
+      "type": "custom"
+    },
+    {
+      "key": "│ {#31}  {#39}user {#keys}│",
+      "type": "title",
+      "format": "kr9sis" //"{user-name}"
+    },
+    {
+      "key": "│ {#31}  {#39}host {#keys}│",
+      "type": "title",
+      "format": "yoga-c740" // "{host-name}"
+    },
+    {
+      "key": "│ {#32}󰣭  {#39}dist {#keys}│",
+      "type": "os",
+    },
+    {
+      "key": "│ {#32}  {#39}kern {#keys}│",
+      "type": "kernel"
+    },
+    {
+      "key": "│ {#34}󰇄  {#39}comp {#keys}│",
+      "type": "wm"
+    },
+    {
+      "key": "│ {#34}  {#39}term {#keys}│",
+      "type": "command",
+      "text": "$HOME/.config/fastfetch/scripts/term_shell.sh"
+    },
+    {
+      "key": "│ {#33}󰉉  {#39}disk {#keys}│",
+      "type": "disk",
+      "folders": "/"
+    },
+    {
+      "key": "│ {#33}󰖩  {#39}wifi {#keys}│",
+      "type": "wifi",
+      "format": "{ssid} ({signal-quality}) {protocol}"
+    },
+    {
+      "key": "│ {#39}󰂉  {#39}batt {#keys}│",
+      "type": "battery"
+    },
+    // {
+    //   "key": "│ {#39}  cols {#keys}│",
+    //   "type": "colors",
+    //   "symbol": "circle"
+    // },
+    {
+      "key": "╰─────────╯",
+      "type": "custom"
+    }
+  ]
+}
