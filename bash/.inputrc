@@ -8,10 +8,10 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
 # Arrow keys match what you've typed so far against your command history
-# "\e[A": history-search-backward
-# "\e[B": history-search-forward
-# "\e[C": forward-char
-# "\e[D": backward-char
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
@@ -40,8 +40,8 @@ set colored-stats on
 
 # Cycle forward and backward through completion candidates (tab/shift+tab)
 # (completion listing and display behavior configured above)
-# TAB: menu-complete
-# "\e[Z": menu-complete-backward
+TAB: menu-complete
+"\e[Z": menu-complete-backward
 
 # On first Tab, complete the common prefix before cycling candidates
 set menu-complete-display-prefix on

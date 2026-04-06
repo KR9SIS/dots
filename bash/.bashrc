@@ -37,10 +37,6 @@ fi
 
 EDITOR="nvim"
 
-if [ -f ~/.inputrc ]; then
-  . ~/.inputrc
-fi
-
 # INFO: History control
 # append to the history file, don't overwrite it
 shopt -s histappend
