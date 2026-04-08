@@ -41,7 +41,9 @@ if command -v zoxide &>/dev/null; then
 fi
 
 open() (
-  xdg-open "$@" >/dev/null 2>&1 &
+  for file in "$@"; do
+    xdg-open "$file" >/dev/null 2>&1 &
+  done
 )
 
 if command -v nvim-linux-x86_64.appimage &>/dev/null; then
