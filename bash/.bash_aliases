@@ -8,3 +8,4 @@ fi
 
 alias grep='grep --color=auto'
 alias ffe="fzf --preview 'bat --style=numbers --color=always {}' -e"
+alias cf='cd && clear && fastfetch'
