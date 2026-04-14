@@ -6,22 +6,14 @@
 source "$HOME/.local/share/omarchy/default/bash/rc"
 
 # Add your own exports, aliases, and functions here.
-#
-# Make an alias for invoking commands you use constantly
-# File system
-if command -v eza &>/dev/null; then
-  alias ls='eza --group-directories-first --icons=auto'
-  alias l='eza -lhF --group-directories-first --icons=auto'
-  alias la='eza -lahF --group-directories-first --icons=auto'
-fi
 
-alias grep='grep --color=auto'
-alias ffe="fzf --preview 'bat --style=numbers --color=always {}' -e"
+source "$HOME/.bash_aliases"
 
 bind -f ~/.inputrc
 
 source "$HOME/.bash_functions"
+
 # set PATH so it includes user's private bin if it exists
-if [ -d "/home/kr9sis/.local/bin/" ]; then
-  PATH="/home/kr9sis/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin/" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
