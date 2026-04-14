@@ -37,13 +37,13 @@
       "type": "kernel"
     },
     {
-      "key": "│ {#34}󰇄  {#39}comp {#keys}│",
-      "type": "wm"
-    },
-    {
       "key": "│ {#34}  {#39}term {#keys}│",
       "type": "command",
       "text": "$HOME/.config/fastfetch/scripts/term_shell.sh"
+    },
+    {
+      "key": "│ {#34}󰇄  {#39}comp {#keys}│",
+      "type": "wm"
     },
     {
       "key": "│ {#33}󰉉  {#39}disk {#keys}│",
