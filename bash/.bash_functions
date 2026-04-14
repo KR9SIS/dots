@@ -22,3 +22,9 @@ iso2sd() {
 ls_apps() {
   pacman -Qetq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
+
+open() {
+  for file in "$@"; do
+    xdg-open "$file" >/dev/null 2>&1 &
+  done
+}
