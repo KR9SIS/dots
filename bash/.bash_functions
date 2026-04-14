@@ -28,5 +28,6 @@ ls_apps() {
 open() {
   for file in "$@"; do
     xdg-open "$file" >/dev/null 2>&1 &
+    disown $!
   done
 }
