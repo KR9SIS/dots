@@ -5,9 +5,15 @@
 
     "battery": {
       "events": {
-        "on-discharging-warning": "notify-send '⚡ Time to recharge!' 'Battery is down to 30%' -u critical",
-        "on-discharging-critical": "notify-send '⚡ RECHARGE NOW!' 'Battery is down to 10%' -u critical",
-        "on-charging-default": "$HOME/.config/waybar/scripts/charging.sh '⚡ Time to recharge!' '⚡ RECHARGE NOW!'",
+        "on-discharging-full": "rm -f /tmp/pcPluggedIn",
+        "on-discharging-default": "rm -f /tmp/pcPluggedIn",
+        "on-discharging-warning": "rm -f /tmp/pcPluggedIn && notify-send '⚡ Time to recharge!' 'Battery is down to 30%' -u critical",
+        "on-discharging-critical": "rm -f /tmp/pcPluggedIn && notify-send '⚡ RECHARGE NOW!' 'Battery is down to 10%' -u critical",
+
+        "on-charging-critical": "$HOME/.config/waybar/scripts/charging.sh",
+        "on-charging-warning": "$HOME/.config/waybar/scripts/charging.sh",
+        "on-charging-default": "$HOME/.config/waybar/scripts/charging.sh",
+
         "on-charging-full": "notify-send '󰁹 Battery Full!' 'Unplug charger 󰚦' -u normal"
       }
     }
