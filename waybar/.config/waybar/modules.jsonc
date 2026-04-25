@@ -1,0 +1,98 @@
+{
+  "battery": {
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰁹"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "on-click": "omarchy-menu power",
+    "states": {
+      "full": 100,
+      "default": 80,
+      "warning": 30,
+      "critical": 10
+    }
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "",
+      "9": "",
+      "10": "0",
+      "active": "󱓻"
+    }
+  },
+  "hyprland/language": {
+    "format": "{short}"
+  },
+  "clock": {
+    "format": "{:L%a %d %b %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "format": {
+        "months": "<b>{}</b>",
+        "days": "<span size='14pt'>{}</span>",
+        "weeks": "<span color='#d4bd99'>W{:%V}</span>",
+        "weekdays": "<span color='#d4bd99'>{}</span>",
+        "today": "<span color='#cc241d'>{}</span>"
+      }
+    },
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    "actions": {
+      "on-click": "mode", // left-click → toggle year ↔ month
+      "on-scroll-up": "shift_up", // scroll up   → future year/month
+      "on-scroll-down": "shift_down", // scroll down → past year/month
+      "on-click-middle": "shift_reset" // middle-click → jump back to today / current view
+    }
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}\n\nSuper + CTRL + W",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}\n\nSuper + CTRL + B",
+    "on-click": "omarchy-launch-bluetooth"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "omarchy-launch-audio",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%\n\nSuper + CTRL + A",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", ""]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 [
   {
     "output": "eDP-1",
-    "include": ["base.jsonc"],
+    "include": ["base.jsonc", "modules.jsonc", "custom.jsonc"],
 
     "battery": {
       "events": {
@@ -20,6 +20,6 @@
   },
   {
     "output": "!eDP-1",
-    "include": ["base.jsonc"]
+    "include": ["base.jsonc", "modules.jsonc", "custom.jsonc"]
   }
 ]
