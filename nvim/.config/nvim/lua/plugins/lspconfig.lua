@@ -221,6 +221,7 @@ return {
                 clangd = {},
                 gopls = {},
                 basedpyright = {},
+                omnisharp = {},
                 bashls = {},
                 cssls = {},
                 lua_ls = {

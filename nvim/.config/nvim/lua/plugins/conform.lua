@@ -39,6 +39,8 @@ return {
                 jsonc = { "prettierd" },
                 css = { "prettierd" },
                 typescript = { "prettierd" },
+                javascript = { "prettierd" },
+                cs = { "csharpier" },
                 vue = { "prettierd" },
                 bash = { "shfmt" },
                 go = { "gofumpt" },
