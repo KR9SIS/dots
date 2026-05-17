@@ -1,13 +1,28 @@
 #!/bin/env bash
 
 mullvad status -j listen | while read -r status; do
-  if $(jq '.state == "connected"' <<<"$status") -e "true"; then
+  # Checks if an ip field is present, then checks status of connection
+  # 1 for on, 0 for off, -1 for error
+  CONNECTED=$(jq -e '
+  if (.details.location | .ipv4 // .ipv6) then 
+    if .state == "connected" then 1
+    elif .state == "disconnected" then 0
+    else -1 end
+  else -1 end
+' 2>/dev/null <<<"$status") || CONNECTED=-1
+
+  if (("$CONNECTED" == 1)); then
     RET=$(jq --unbuffered --compact-output --arg text "󰯅" '. | {
       text: $text,
       tooltip: "Country: " + .details.location.country + "\rCity: " + .details.location.city + "\rIPv4: " + .details.location.ipv4 + "\rIPv6: " + .details.location.ipv6 + "\r\rSuper CTRL + M"
     }' <<<"$status")
-  else
+
+  elif (("$CONNECTED" == 0)); then
     RET='{"text":"󰒙","tooltip":"Off\r\rSuper CTRL + M"}'
+
+  else
+    continue
+
   fi
 
   printf "%s\n" "$RET"
