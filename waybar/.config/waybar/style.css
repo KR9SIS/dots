@@ -31,12 +31,19 @@
 }
 
 #cpu,
-#battery,
+#network,
+#bluetooth,
+#custom-vpn,
 #pulseaudio,
 #custom-omarchy,
 #custom-update {
   min-width: 12px;
   margin: 0 7.5px;
+}
+
+#battery {
+  min-width: 10px;
+  margin: 0 5px;
 }
 
 /* --- Animations --- */
@@ -72,14 +79,6 @@
 
 #tray {
   margin-right: 16px;
-}
-
-#bluetooth {
-  margin-right: 17px;
-}
-
-#network {
-  margin-right: 13px;
 }
 
 #custom-expand-icon {
