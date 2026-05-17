@@ -15,6 +15,7 @@
   ],
   "modules-right": [
     "bluetooth",
+    "custom/vpn",
     "network",
     "pulseaudio",
     "battery",

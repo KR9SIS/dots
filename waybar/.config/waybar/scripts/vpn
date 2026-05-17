@@ -1,0 +1,14 @@
+#!/bin/env bash
+
+mullvad status -j listen | while read -r status; do
+  if $(jq '.state == "connected"' <<<"$status") -e "true"; then
+    RET=$(jq --unbuffered --compact-output --arg text "󰯅" '. | {
+      text: $text,
+      tooltip: "Country: " + .details.location.country + "\rCity: " + .details.location.city + "\rIPv4: " + .details.location.ipv4 + "\rIPv6: " + .details.location.ipv6 + "\r\rSuper CTRL + M"
+    }' <<<"$status")
+  else
+    RET='{"text":"󰒙","tooltip":"Off\r\rSuper CTRL + M"}'
+  fi
+
+  printf "%s\n" "$RET"
+done

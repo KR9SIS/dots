@@ -43,5 +43,11 @@
     "exec": "$OMARCHY_PATH/default/waybar/indicators/notification-silencing.sh",
     "signal": 10,
     "return-type": "json"
+  },
+  "custom/vpn": {
+    "exec": "$HOME/.config/waybar/scripts/vpn",
+    "restart-interval": 5,
+    "on-click": "mullvad-vpn",
+    "return-type": "json"
   }
 }
