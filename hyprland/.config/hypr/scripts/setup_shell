@@ -5,5 +5,9 @@ while ! (fastfetch --logo none --structure wifi | grep -qE 'Wifi .+ - .+ GHz .+'
   sleep 1
 done
 
+while ! mullvad status -j | jq -e '.state == "connected"'; do
+  sleep 1
+done
+
 clear && fastfetch
 exec bash
