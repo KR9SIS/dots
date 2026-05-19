@@ -47,7 +47,8 @@
   "custom/vpn": {
     "exec": "$HOME/.config/waybar/scripts/vpn",
     "restart-interval": 5,
-    "on-click": "mullvad-vpn",
+    "on-click": "$HOME/.config/waybar/scripts/vpn-toogle",
+    "on-click-right": "mullvad-vpn",
     "return-type": "json"
   }
 }
