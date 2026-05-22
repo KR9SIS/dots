@@ -1,29 +1,97 @@
 #!/bin/env bash
 
-mullvad status -j listen | while read -r status; do
+# VPN config functions
+vpn_listen_cmd() {
+  mullvad status -j listen
+}
+vpn_status_cmd() {
+  mullvad status -j
+}
+vpn_on_cmd() {
+  mullvad connect
+}
+vpn_off_cmd() {
+  mullvad disconnect
+}
+
+connected() {
+  local STATUS="$1"
   # Checks if an ip field is present, then checks status of connection
   # 1 for on, 0 for off, -1 for error
   CONNECTED=$(jq -e '
-  if (.details.location | .ipv4 // .ipv6) then 
-    if .state == "connected" then 1
-    elif .state == "disconnected" then 0
+    if (.details.location | .ipv4 // .ipv6) then 
+      if .state == "connected" then 1
+      elif .state == "disconnected" then 0
+      else -1 end
     else -1 end
-  else -1 end
-' 2>/dev/null <<<"$status") || CONNECTED=-1
+  ' 2>/dev/null <<<"$STATUS") || CONNECTED=-1
 
-  if (("$CONNECTED" == 1)); then
-    RET=$(jq --unbuffered --compact-output --arg text "󰯅" '. | {
+  printf "%s\n" "$CONNECTED"
+}
+
+listen() {
+  vpn_listen_cmd | while read -r status; do
+    CONNECTED=$(connected "$status")
+
+    if (("$CONNECTED" == 1)); then
+      RET=$(jq --unbuffered --compact-output --arg text "󰯅" '. | {
       text: $text,
-      tooltip: "Country: " + .details.location.country + "\rCity: " + .details.location.city + "\rIPv4: " + .details.location.ipv4 + "\rIPv6: " + .details.location.ipv6 + "\r\rSuper CTRL + M"
+      tooltip:
+        "Country: "
+        + .details.location.country
+        + "\rCity: "
+        + .details.location.city
+        + "\rIPv4: "
+        + .details.location.ipv4
+        + "\rIPv6: "
+        + .details.location.ipv6
+        + "\r\rSuper CTRL + M"
     }' <<<"$status")
 
-  elif (("$CONNECTED" == 0)); then
-    RET='{"text":"󰒙","tooltip":"Off\r\rSuper CTRL + M"}'
+    elif (("$CONNECTED" == 0)); then
+      RET=$(jq --unbuffered --compact-output --arg text "󰒙" '. | {
+      text: $text,
+      tooltip:
+        " --- EXPOSED ---\rCountry: "
+        + .details.location.country
+        + "\rCity: "
+        + .details.location.city
+        + "\rIPv4: "
+        + .details.location.ipv4
+        + "\rIPv6: "
+        + .details.location.ipv6
+        + "\r\rSuper CTRL + M"
+    }' <<<"$status")
+
+    else
+      continue
+
+    fi
+
+    printf "%s\n" "$RET"
+  done
+}
+
+toggle() {
+  CONNECTED=$(connected "$(vpn_status_cmd)")
+
+  if (("$CONNECTED" == 1)); then
+    vpn_off_cmd
 
   else
-    continue
+    vpn_on_cmd
 
   fi
+}
 
-  printf "%s\n" "$RET"
-done
+case $1 in
+toggle)
+  toggle
+  ;;
+listen)
+  listen
+  ;;
+*)
+  printf "Please supply an option\nvpn <option>\nOptions can be either 'toggle' or 'listen'\n"
+  ;;
+esac
