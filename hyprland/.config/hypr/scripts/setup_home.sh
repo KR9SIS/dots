@@ -23,8 +23,8 @@ setup_app() {
 
 setup_app 1 1 "brave-browser" "New tab - Brave"
 
-hyprctl dispatch workspace 2
-setup_app 2 0 "kitty" "~"
+# hyprctl dispatch workspace 2
+setup_app 2 0 "Alacritty" "kr9sis@yoga7i:~"
 
 # hyprctl dispatch workspace 1
 # setup_app 3 0 "vesktop" "Discord | Friends"
