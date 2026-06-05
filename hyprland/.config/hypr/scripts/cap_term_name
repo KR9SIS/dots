@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+term_name="$(omarchy default terminal)"
+echo "${term_name^}"
