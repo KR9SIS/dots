@@ -13,7 +13,7 @@
     "states": {
       "full": 100,
       "default": 80,
-      "warning": 30,
+      "warning": 20,
       "critical": 10
     }
   },

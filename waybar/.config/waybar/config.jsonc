@@ -7,7 +7,7 @@
       "events": {
         "on-discharging-full": "rm -f /tmp/pcPluggedIn",
         "on-discharging-default": "rm -f /tmp/pcPluggedIn",
-        "on-discharging-warning": "rm -f /tmp/pcPluggedIn && notify-send '⚡ Time to recharge!' 'Battery is down to 30%' -u critical",
+        "on-discharging-warning": "rm -f /tmp/pcPluggedIn && notify-send '⚡ Time to recharge!' 'Battery is down to 20%' -u critical",
         "on-discharging-critical": "rm -f /tmp/pcPluggedIn && notify-send '⚡ RECHARGE NOW!' 'Battery is down to 10%' -u critical",
 
         "on-charging-critical": "$HOME/.config/waybar/scripts/charging.sh",
