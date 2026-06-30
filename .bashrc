@@ -8,15 +8,15 @@ source "$HOME/.local/share/omarchy/default/bash/rc"
 # Add your own exports, aliases, and functions here.
 
 # src directory
-SRC=$HOME/dots/bash/src
+SRC=$HOME/.bash
 
-source "$SRC/.bash_aliases"
+source "$SRC/aliases"
 
 bind -f ~/.inputrc
 
-source "$SRC/.bash_functions"
+source "$SRC/functions"
 
-. "$SRC/.colorize_man"
+. "$SRC/colorize_man"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin/" ]; then
