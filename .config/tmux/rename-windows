@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+# rename-windows — Smart tmux window renamer
+#
+# Disambiguates window names by adding path context when needed.
+#
+# Logic:
+#
+# 1. Parse all windows: session, index, command, path
+# 2. Compute initial name for each:
+#    - shell (bash): last 1 path component (basename)
+#    - non-shell: command name (e.g. nvim, opencode)
+# 3. Find conflicts (same name used by >1 window)
+# 4. For each conflict group:
+#    a. If ALL windows share the same full path:
+#       → Accept duplicate, set name to basename (shell) or cmd (app)
+#    b. Otherwise:
+#       → Increase depth by 1 for each window in the group:
+#          - shell:         last N path components (e.g. "foo/api")
+#          - non-shell:     "cmd:last_{N-1}_components" (e.g. "nvim:a")
+#       → If all produce the same new name → unresolvable, accept duplicate
+#       → Otherwise → update names and re-check for conflicts
+# 5. Repeat step 3-4 until no conflicts remain or 20 iterations
+# 6. Apply names: tmux rename-window -t "session:index" "name"
+#
+# Uses only: arrays, functions, temp files, sort | uniq -d
+# No associative arrays, no process substitution.
+#
