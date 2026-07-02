@@ -6,15 +6,14 @@
 # source "$HOME/.local/share/omarchy/default/bash/rc"
 
 # src directory
-SRC=$HOME/.bash
 
-source "$SRC/functions"
+source "$HOME/.bash/functions"
 
-source "$SRC/aliases"
+source "$HOME/.bash/aliases"
 
 bind -f ~/.inputrc
 
-. "$SRC/colorize_man"
+. "$HOME/.bash/colorize_man"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin/" ]; then
@@ -37,7 +36,7 @@ fi
 
 # INFO: Inits
 
-if command -v fzf &>/dev/null; then
+if exists fzf; then
   if [[ -f /usr/share/fzf/completion.bash ]]; then
     source /usr/share/fzf/completion.bash
   fi
@@ -46,10 +45,10 @@ if command -v fzf &>/dev/null; then
   fi
 fi
 
-if [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]] && command -v starship &>/dev/null; then
+if [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]] && exists starship; then
   eval "$(starship init bash)"
 fi
 
-if command -v zoxide &>/dev/null; then
+if exists zoxide; then
   eval "$(zoxide init bash)"
 fi
