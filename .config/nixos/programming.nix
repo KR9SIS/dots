@@ -3,9 +3,6 @@
   pkgs,
   ...
 }:
-let
-  pythonWithDebug = pkgs.python3.withPackages (ps: [ ps.debugpy ]);
-in
 {
 
   programs.neovim = {
@@ -62,7 +59,6 @@ in
     # podman-compose
 
     # Neovim
-    neovim
     # Lazyvim Deps
     # ast-grep
     # ghostscript
@@ -113,10 +109,10 @@ in
     markdownlint-cli2
 
     # TypeScript / JavaScript / CSS / Vue
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages.vue-language-server
-    nodePackages.prettierd
+    typescript-language-server
+    vscode-langservers-extracted
+    vue-language-server
+    prettierd
 
     # Nix
     nil
@@ -124,11 +120,6 @@ in
     statix
 
     # Python
-    (pkgs.writeShellScriptBin "python" ''
-      export LD_BINARY_PATH=$NIX_LD_LIBRARY_PATH
-      exec "${pythonWithDebug}/bin/python3" "$@"
-    '')
-    python3Packages.debugpy
     python3Packages.autopep8
     basedpyright
     ruff
