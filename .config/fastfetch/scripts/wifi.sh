@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 timeout 10 bash -c '
   while ! hostname -i | grep -q -E "192\.168\.[0-9]{1,3}\.[0-9]{1,3}"; do
