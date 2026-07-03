@@ -1,5 +1,4 @@
-@import "../../../../../../../.config/omarchy/current/theme/walker.css";
-@import "../../../../../../../.local/state/omarchy/toggles/walker.css";
+@import "../../../theme/walker.css";
 
 * {
   all: unset;
@@ -119,4 +118,3 @@ child:selected {
 
 .preview {
 }
-

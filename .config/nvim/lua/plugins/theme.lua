@@ -1,1 +1,1 @@
-/home/kr9sis/.config/omarchy/current/theme/neovim.lua
+/home/kr9sis/.config/theme/neovim.lua
