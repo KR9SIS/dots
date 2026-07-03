@@ -1,5 +1,15 @@
-local vue_language_server_path = vim.fn.stdpath("data")
-    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+-- Resolve vue-language-server path from Nix store or system PATH
+local vue_language_server_path = (function()
+    local binpath = vim.fn.resolve(vim.fn.exepath("vue-language-server") or "")
+    local prefix = binpath:match("(.+)/bin/vue%-language%-server$")
+    if prefix then
+        local candidate = prefix .. "/lib/node_modules/@vue/language-server"
+        if vim.fn.isdirectory(candidate) == 1 then
+            return candidate
+        end
+    end
+    return ""
+end)()
 local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
 local vue_plugin = {
     name = "@vue/typescript-plugin",
