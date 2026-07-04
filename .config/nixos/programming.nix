@@ -10,44 +10,8 @@
     defaultEditor = true;
   };
 
-  # virtualisation = {
-  #   containers.enable = true;
-  #   podman = {
-  #     enable = true;
-  #     dockerCompat = true;
-  #     defaultNetwork.settings.dns_enabled = true;
-  #   };
-  # };
-
-  # users.users.tobi = {
-  #   extraGroups = [
-  #     "podman"
-  #   ];
-  # };
-
-  # programs.nix-ld = {
-  #   enable = true;
-  #   libraries = with pkgs; [
-  #     acl
-  #     attr
-  #     bzip2
-  #     curl
-  #     libsodium
-  #     libssh
-  #     libxml2
-  #     openssl
-  #     stdenv.cc.cc
-  #     systemd
-  #     util-linux
-  #     xz
-  #     zlib
-  #     zstd
-  #   ];
-  # };
-
   environment.systemPackages = with pkgs; [
-    # Shell
-    # direnv
+    # INFO: Shell
     eza
     fzf
     starship
@@ -55,58 +19,57 @@
     tmux
     alacritty
     opencode
+    fastfetch
+    dig
+    fd
+    typos
+    bat
+    btop
+    file
+    graphviz
+    grc
+    gum
+    imagemagick
+    jq
+    lazygit
+    ripgrep
+    tldr
+    usbutils
+    watchexec
+    yq
+    zip
+    unzip
+    uv
 
-    # podman-compose
-
-    # Neovim
-    # Lazyvim Deps
-    # ast-grep
-    # ghostscript
-    luarocks
-    # mermaid-cli
-    # sqlite # Zotcite
-    # tectonic
+    # INFO: Neovim
     nodejs
     tree-sitter
-
-    # harper
-    # ltex-ls-plus # Because harper doesn't support LaTeX??
-
-    # INFO: Language Support
+    luarocks
 
     # Bash
     bash-language-server
+    shfmt
 
-    # Elixir
-    # elixir
-    # beamMinimal28Packages.elixir-ls
+    # Markdown
+    markdownlint-cli2
 
-    # Go
-    # gcc # Apparently needed for Go sometimes? ("net")
-    # go
-    # golangci-lint
-    gofumpt
-    gopls
-    delve
-
-    # Latex
-    # texlab
+    # C#
+    omnisharp-roslyn
+    csharpier
 
     # C/C++
     clang-tools
 
-    # C#
-    # omnisharp-roslyn
-    # csharpier
+    # Go
+    gofumpt
+    gopls
+    delve
 
     # Lua
     lua5_1
     lua-language-server
     selene
     stylua
-
-    # Markdown
-    markdownlint-cli2
 
     # TypeScript / JavaScript / CSS / Vue
     typescript-language-server
@@ -120,11 +83,80 @@
     statix
 
     # Python
-    python3Packages.autopep8
     basedpyright
     ruff
     ty
-    uv
+
+    # YAML
+    yaml-language-server
+
+    # MakeFile
+    mbake
+
+    # virtualisation = {
+    #   containers.enable = true;
+    #   podman = {
+    #     enable = true;
+    #     dockerCompat = true;
+    #     defaultNetwork.settings.dns_enabled = true;
+    #   };
+    # };
+
+    # users.users.tobi = {
+    #   extraGroups = [
+    #     "podman"
+    #   ];
+    # };
+
+    # programs.nix-ld = {
+    #   enable = true;
+    #   libraries = with pkgs; [
+    #     acl
+    #     attr
+    #     bzip2
+    #     curl
+    #     libsodium
+    #     libssh
+    #     libxml2
+    #     openssl
+    #     stdenv.cc.cc
+    #     systemd
+    #     util-linux
+    #     xz
+    #     zlib
+    #     zstd
+    #   ];
+    # };
+
+    # direnv
+    # podman-compose
+
+    # Neovim
+    # Lazyvim Deps
+    # ast-grep
+    # ghostscript
+    # mermaid-cli
+    # sqlite # Zotcite
+    # tectonic
+
+    # harper
+    # ltex-ls-plus # Because harper doesn't support LaTeX??
+
+    # INFO: Language Support
+
+    # Elixir
+    # elixir
+    # beamMinimal28Packages.elixir-ls
+
+    # gcc # Apparently needed for Go sometimes? ("net")
+    # go
+    # golangci-lint
+
+    # Latex
+    # texlab
+
+    # Python
+    #python3Packages.autopep8
 
     # Rust
     # cargo
@@ -139,49 +171,27 @@
     # Typst
     # tinymist
 
-    # YAML
-    yaml-language-server
-
     # Speech
     # praat
 
     # Formatters / Linters
-    shfmt
     # checkmake
-    typos
     # bake # conform.lua refs this for Makefiles; no matching Nix pkg
-    fd
 
     # CLI
-    bat
     # borgbackup
-    btop
     # delta
     # distrobox
     # exiftool
-    file
-    graphviz
-    grc
-    gum
-    imagemagick
     # jless
-    jq
-    lazygit
     # libqalculate
     # moreutils
     # parallel-full
     # pandoc
     # pciutils
     # progress
-    ripgrep
     # socat
     # go-task
-    tldr
     # unstable.typst
-    usbutils
-    watchexec
-    yq
-    zip
-    unzip
   ];
 }
