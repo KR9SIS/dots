@@ -9,9 +9,9 @@
     [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
       ./programming.nix
-      ./printing.nix
       inputs.home-manager.nixosModules.default
     ];
+    ./general.nix
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
