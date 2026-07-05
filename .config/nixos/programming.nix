@@ -40,6 +40,7 @@
     zip
     unzip
     uv
+    wl-clipboard
 
     # INFO: Neovim
     nodejs
