@@ -1,9 +1,9 @@
 {
-  "custom/omarchy": {
+  "custom/sys-menu": {
     "format": "<span > </span>",
-    "on-click": "omarchy-menu",
+    "on-click": "system-menu",
     "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+    "tooltip-format": "System Menu\n\nSuper + Esc"
   },
   "custom/update": {
     "format": "",
