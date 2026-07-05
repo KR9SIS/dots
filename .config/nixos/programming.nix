@@ -10,189 +10,198 @@
     defaultEditor = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    # INFO: Shell
-    eza
-    fzf
-    starship
-    zoxide
-    tmux
-    alacritty
-    opencode
-    fastfetch
-    dig
-    fd
-    typos
-    bat
-    btop
-    file
-    graphviz
-    grc
-    gum
-    imagemagick
-    jq
-    lazygit
-    ripgrep
-    tldr
-    usbutils
-    watchexec
-    yq
-    zip
-    unzip
-    uv
-    wl-clipboard
+  environment = {
 
-    # INFO: Neovim
-    nodejs
-    tree-sitter
-    luarocks
+    shells = [ pkgs.bash ];
+    sessionVariables = {
+      PATH = [
+        "/home/kr9sis/.local/bin/"
+      ];
+    };
+    systemPackages = with pkgs; [
+      # INFO: Shell
+      eza
+      fzf
+      starship
+      zoxide
+      tmux
+      alacritty
+      opencode
+      fastfetch
+      dig
+      fd
+      typos
+      bat
+      btop
+      file
+      graphviz
+      grc
+      gum
+      imagemagick
+      jq
+      lazygit
+      ripgrep
+      tldr
+      usbutils
+      watchexec
+      yq
+      zip
+      unzip
+      uv
+      wl-clipboard
 
-    # Bash
-    bash-language-server
-    shfmt
+      # INFO: Neovim
+      nodejs
+      tree-sitter
+      luarocks
 
-    # Markdown
-    markdownlint-cli2
+      # Bash
+      bash-language-server
+      shfmt
 
-    # C#
-    omnisharp-roslyn
-    csharpier
+      # Markdown
+      markdownlint-cli2
 
-    # C/C++
-    clang-tools
+      # C#
+      omnisharp-roslyn
+      csharpier
 
-    # Go
-    gofumpt
-    gopls
-    delve
+      # C/C++
+      clang-tools
 
-    # Lua
-    lua5_1
-    lua-language-server
-    selene
-    stylua
+      # Go
+      gofumpt
+      gopls
+      delve
 
-    # TypeScript / JavaScript / CSS / Vue
-    typescript-language-server
-    vscode-langservers-extracted
-    vue-language-server
-    prettierd
+      # Lua
+      lua5_1
+      lua-language-server
+      selene
+      stylua
 
-    # Nix
-    nil
-    nixfmt
-    statix
+      # TypeScript / JavaScript / CSS / Vue
+      typescript-language-server
+      vscode-langservers-extracted
+      vue-language-server
+      prettierd
 
-    # Python
-    basedpyright
-    ruff
-    ty
+      # Nix
+      nil
+      nixfmt
+      statix
 
-    # YAML
-    yaml-language-server
+      # Python
+      basedpyright
+      ruff
+      ty
 
-    # MakeFile
-    mbake
+      # YAML
+      yaml-language-server
 
-    # virtualisation = {
-    #   containers.enable = true;
-    #   podman = {
-    #     enable = true;
-    #     dockerCompat = true;
-    #     defaultNetwork.settings.dns_enabled = true;
-    #   };
-    # };
+      # MakeFile
+      mbake
 
-    # users.users.tobi = {
-    #   extraGroups = [
-    #     "podman"
-    #   ];
-    # };
+      # virtualisation = {
+      #   containers.enable = true;
+      #   podman = {
+      #     enable = true;
+      #     dockerCompat = true;
+      #     defaultNetwork.settings.dns_enabled = true;
+      #   };
+      # };
 
-    # programs.nix-ld = {
-    #   enable = true;
-    #   libraries = with pkgs; [
-    #     acl
-    #     attr
-    #     bzip2
-    #     curl
-    #     libsodium
-    #     libssh
-    #     libxml2
-    #     openssl
-    #     stdenv.cc.cc
-    #     systemd
-    #     util-linux
-    #     xz
-    #     zlib
-    #     zstd
-    #   ];
-    # };
+      # users.users.tobi = {
+      #   extraGroups = [
+      #     "podman"
+      #   ];
+      # };
 
-    # direnv
-    # podman-compose
+      # programs.nix-ld = {
+      #   enable = true;
+      #   libraries = with pkgs; [
+      #     acl
+      #     attr
+      #     bzip2
+      #     curl
+      #     libsodium
+      #     libssh
+      #     libxml2
+      #     openssl
+      #     stdenv.cc.cc
+      #     systemd
+      #     util-linux
+      #     xz
+      #     zlib
+      #     zstd
+      #   ];
+      # };
 
-    # Neovim
-    # Lazyvim Deps
-    # ast-grep
-    # ghostscript
-    # mermaid-cli
-    # sqlite # Zotcite
-    # tectonic
+      # direnv
+      # podman-compose
 
-    # harper
-    # ltex-ls-plus # Because harper doesn't support LaTeX??
+      # Neovim
+      # Lazyvim Deps
+      # ast-grep
+      # ghostscript
+      # mermaid-cli
+      # sqlite # Zotcite
+      # tectonic
 
-    # INFO: Language Support
+      # harper
+      # ltex-ls-plus # Because harper doesn't support LaTeX??
 
-    # Elixir
-    # elixir
-    # beamMinimal28Packages.elixir-ls
+      # INFO: Language Support
 
-    # gcc # Apparently needed for Go sometimes? ("net")
-    # go
-    # golangci-lint
+      # Elixir
+      # elixir
+      # beamMinimal28Packages.elixir-ls
 
-    # Latex
-    # texlab
+      # gcc # Apparently needed for Go sometimes? ("net")
+      # go
+      # golangci-lint
 
-    # Python
-    #python3Packages.autopep8
+      # Latex
+      # texlab
 
-    # Rust
-    # cargo
-    # cargo-insta
-    # rust-analyzer
-    # rustc
-    # rustfmt
+      # Python
+      #python3Packages.autopep8
 
-    # TCL
-    # tclint
+      # Rust
+      # cargo
+      # cargo-insta
+      # rust-analyzer
+      # rustc
+      # rustfmt
 
-    # Typst
-    # tinymist
+      # TCL
+      # tclint
 
-    # Speech
-    # praat
+      # Typst
+      # tinymist
 
-    # Formatters / Linters
-    # checkmake
-    # bake # conform.lua refs this for Makefiles; no matching Nix pkg
+      # Speech
+      # praat
 
-    # CLI
-    # borgbackup
-    # delta
-    # distrobox
-    # exiftool
-    # jless
-    # libqalculate
-    # moreutils
-    # parallel-full
-    # pandoc
-    # pciutils
-    # progress
-    # socat
-    # go-task
-    # unstable.typst
-  ];
+      # Formatters / Linters
+      # checkmake
+      # bake # conform.lua refs this for Makefiles; no matching Nix pkg
+
+      # CLI
+      # borgbackup
+      # delta
+      # distrobox
+      # exiftool
+      # jless
+      # libqalculate
+      # moreutils
+      # parallel-full
+      # pandoc
+      # pciutils
+      # progress
+      # socat
+      # go-task
+      # unstable.typst
+    ];
+  };
 }
