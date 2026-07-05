@@ -29,8 +29,21 @@
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
+    wireless = {
+      iwd = {
+        enable = true;
+        settings = {
+          IPv6 = {
+            Enabled = false;
+          };
+          Settings = {
+            AutoConnect = true;
+          };
+        };
+      };
 
-    networking.networkmanager.enable = true;
+    };
+
   };
 
   # Set your time zone.
@@ -103,6 +116,7 @@
       #  wget
       brave
       gcc
+      impala
     ];
     shells = [ pkgs.bash ];
     sessionVariables = {
