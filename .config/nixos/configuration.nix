@@ -123,9 +123,6 @@
       gcc
       impala
     ];
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
   };
 
   hardware.bluetooth.enable = true;

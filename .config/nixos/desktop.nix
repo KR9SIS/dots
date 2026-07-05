@@ -17,14 +17,20 @@
     hypridle.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    hyprpaper
-    hyprmon
-    hyprshot
-    hyprsysteminfo
-    hyprsunset
-    hyprshutdown
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      hyprpaper
+      hyprmon
+      hyprshot
+      hyprsysteminfo
+      hyprsunset
+      hyprshutdown
+    ];
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+  };
 
   programs = {
     uwsm = {
