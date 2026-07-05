@@ -2,36 +2,35 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  # config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-      ./programming.nix
-      inputs.home-manager.nixosModules.default
-    ];
     ./general.nix
+  networking = {
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+    hostName = "yoga7i"; # Define your hostname.
 
-  boot.initrd.luks.devices."luks-806c602b-ef59-4211-95e3-f5903e6e9738".device = "/dev/disk/by-uuid/806c602b-ef59-4211-95e3-f5903e6e9738";
-  networking.hostName = "yoga7i"; # Define your hostname.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Enable networking
 
-  # Enable networking
     networking.networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
-
 
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-mono
@@ -52,12 +51,23 @@
     LC_TIME = "en_DK.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "is";
     variant = "";
+    # List services that you want to enable:
+
+    # Enable the OpenSSH daemon.
+    # services.openssh.enable = true;
   };
 
   # Configure console keymap
@@ -67,12 +77,15 @@
   users.users."kr9sis" = {
     isNormalUser = true;
     description = "KHS";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      # "networkmanager"
+      "wheel"
+    ];
+    # packages = with pkgs; [ ];
   };
 
   home-manager = {
-  # Also pass inputs to home-manager modules
+    # Also pass inputs to home-manager modules
     extraSpecialArgs = { inherit inputs; };
     users = {
       "kr9sis" = import ./home.nix;
@@ -84,7 +97,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment = { 
+  environment = {
     systemPackages = with pkgs; [
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget
@@ -94,11 +107,28 @@
       gcc
     ];
     shells = [ pkgs.bash ];
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
   hardware.bluetooth.enable = true;
 
+  # Bootloader
+  boot = {
+    initrd = {
+      luks.devices."luks-806c602b-ef59-4211-95e3-f5903e6e9738".device =
+        "/dev/disk/by-uuid/806c602b-ef59-4211-95e3-f5903e6e9738";
+    };
+    };
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+
+  };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
