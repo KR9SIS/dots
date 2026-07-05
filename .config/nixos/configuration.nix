@@ -82,12 +82,6 @@
     };
   };
 
-    # List services that you want to enable:
-
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
-  };
-
   # Configure console keymap
   console.keyMap = "is-latin1";
 
@@ -119,9 +113,7 @@
     systemPackages = with pkgs; [
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget
-      brave
       gcc
-      impala
     ];
   };
 

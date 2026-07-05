@@ -2,6 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
+    brave
+    impala
+    wiremix
+    bluetui
+    evince
+    nautilus
+
     libreoffice-qt6
     hunspell
     hunspellDicts.da_DK
@@ -35,5 +42,8 @@
       openFirewall = true;
     };
 
+    gvfs.enable = true;
+
+    playerctld.enable = true;
   };
 }
