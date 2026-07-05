@@ -30,7 +30,7 @@ connected() {
 }
 
 listen() {
-  vpn_listen_cmd | while read -r status; do
+  while read -r status; do
     CONNECTED=$(connected "$status")
 
     if (("$CONNECTED" == 1)); then
@@ -69,7 +69,7 @@ listen() {
     fi
 
     printf "%s\n" "$RET"
-  done
+  done < <(vpn_listen_cmd)
 }
 
 toggle() {
