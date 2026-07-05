@@ -130,15 +130,36 @@
   # Bootloader
   boot = {
     initrd = {
+      verbose = false;
       luks.devices."luks-806c602b-ef59-4211-95e3-f5903e6e9738".device =
         "/dev/disk/by-uuid/806c602b-ef59-4211-95e3-f5903e6e9738";
     };
+    consoleLogLevel = 3;
+    kernelParams = [
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+    ];
+    plymouth = {
+      enable = true;
+      theme = "circle";
+      logo = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "circle" ];
+        })
+      ];
     };
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
 
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
 
   };
   };
