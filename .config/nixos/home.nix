@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -79,6 +79,27 @@
     };
   };
 
+  # XDG Defaults
+  xdg = {
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+      config.hyprland.default = [
+        "hyprland"
+        "gtk"
+      ];
+    };
+    terminal-exec = {
+      enable = true;
+      settings = {
+        default = [ "Alacritty.desktop" ];
+      };
+    };
+  };
 
   programs = {
     # Let Home Manager install and manage itself.
@@ -92,4 +113,13 @@
       };
     };
   };
+
+  wayland.windowManager.hyprland.systemd.enable = false;
+
+  systemd.user.sessionVariables = {
+    WAYLAND_DISPLAY = "wayland-1";
+    DISPLAY = ":0";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+  };
+
 }

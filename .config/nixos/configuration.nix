@@ -13,7 +13,11 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./desktop.nix
+    ./programming.nix
     ./general.nix
+  ];
+
   networking = {
 
     hostName = "yoga7i"; # Define your hostname.
@@ -60,10 +64,6 @@
     };
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "is";
-    variant = "";
     # List services that you want to enable:
 
     # Enable the OpenSSH daemon.
@@ -102,7 +102,6 @@
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget
       brave
-      waybar
       wl-clipboard
       gcc
     ];
@@ -137,18 +136,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.hyprland.enable = true;
-  # wayland.windowManager.hyprland.enable = true;
-
-  # List services that you want to enable:
-
-  services.displayManager.defaultSession = "none+hyprland";
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
