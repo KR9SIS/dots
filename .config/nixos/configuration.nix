@@ -162,6 +162,14 @@
     loader.timeout = 0;
 
   };
+
+  security.sudo = {
+    enable = true;
+    wheelNeedsPassword = true; # Require password for sudo (default: user's password)
+    configFile = ''
+      # Force root password instead of user password
+      Defaults rootpw
+    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are
