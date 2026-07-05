@@ -122,4 +122,11 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
   };
 
+  services = {
+    mako.enable = true;
+    elephant.enable = true;
+    walker.enable = true;
+    walker.systemd.enable = true;
+  };
+
 }
