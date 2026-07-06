@@ -112,6 +112,14 @@
     };
   };
 
+  wayland.windowManager.hyprland.systemd.enable = false;
+
+  systemd.user.sessionVariables = {
+    WAYLAND_DISPLAY = "wayland-1";
+    DISPLAY = ":0";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+  };
+
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
@@ -123,17 +131,16 @@
         email = "mkmw464l@anonaddy.com";
       };
     };
-  };
-
-  wayland.windowManager.hyprland.systemd.enable = false;
-
-  systemd.user.sessionVariables = {
-    WAYLAND_DISPLAY = "wayland-1";
-    DISPLAY = ":0";
-    XDG_CURRENT_DESKTOP = "Hyprland";
+    ssh = {
+      extraConfig = ''
+        Host *
+          AddKeysToAgent yes
+      '';
+    };
   };
 
   services = {
+    ssh-agent.enable = true;
     mako.enable = true;
     elephant.enable = true;
     walker.enable = true;
