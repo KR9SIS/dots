@@ -145,6 +145,10 @@
     elephant.enable = true;
     walker.enable = true;
     walker.systemd.enable = true;
+
+    # Not present in NixOS for desktop.nix, only home.nix
+    hyprsunset.enable = true;
+    hyprpaper.enable = true;
   };
 
 }
