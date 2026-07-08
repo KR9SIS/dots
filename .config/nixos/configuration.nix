@@ -116,6 +116,7 @@
       gcc
       glib
       libnotify
+      brightnessctl
     ];
   };
 
