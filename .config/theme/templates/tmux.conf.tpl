@@ -1,0 +1,12 @@
+# Kanagawa theme for tmux
+set -g status-style "bg=default,fg={{ foreground }}"
+set -g status-left "#[fg={{ background }},bg={{ accent }},bold] #S #[bg=default] "
+set -g status-right "#[fg={{ accent }}]#{?pane_in_mode,COPY ,}#{?client_prefix,PREFIX ,}#[fg={{ color8 }}]#h "
+set -g window-status-format "#[fg={{ color8 }}] #I:#W "
+set -g window-status-current-format "#[fg={{ accent }},bold] #I:#W "
+set -g pane-border-style "fg={{ color8 }}"
+set -g pane-active-border-style "fg={{ accent }}"
+set -g message-style "bg=default,fg={{ accent }}"
+set -g message-command-style "bg=default,fg={{ accent }}"
+set -g mode-style "bg={{ accent }},fg={{ background }}"
+setw -g clock-mode-colour "{{ accent }}"
