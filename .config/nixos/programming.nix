@@ -16,6 +16,7 @@
     sessionVariables = {
       PATH = [
         "/home/kr9sis/.local/bin/"
+        "/home/kr9sis/.local/bin/omarchy/"
       ];
     };
     systemPackages = with pkgs; [

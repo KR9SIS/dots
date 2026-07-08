@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# omarchy:summary=Launch or attach to the Alacritty tmux session in a terminal
+
+exec launch-terminal bash -c "tmux attach || tmux new -s ${1:-Alacritty}"
