@@ -10,7 +10,7 @@ local function send_shortcut_once(mods, key)
 	end
 end
 
-O.bind(MODKEY .. " + C", "Universal copy", send_shortcut_once("CTRL", "Insert"))
-O.bind(MODKEY .. " + V", "Universal paste", send_shortcut_once("SHIFT", "Insert"))
-O.bind(MODKEY .. " + X", "Universal cut", send_shortcut_once("CTRL", "X"))
-O.bind(MODKEY .. " + CTRL + V", "Clipboard manager", { omarchy = "walker -m clipboard" })
+O.bind("SUPER + C", "Universal copy", send_shortcut_once("CTRL", "Insert"))
+O.bind("SUPER + V", "Universal paste", send_shortcut_once("SHIFT", "Insert"))
+O.bind("SUPER + X", "Universal cut", send_shortcut_once("CTRL", "X"))
+O.bind("SUPER + CTRL + V", "Clipboard manager", { omarchy = "walker -m clipboard" })
