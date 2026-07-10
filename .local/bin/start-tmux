@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-# uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd)" bash -c 'tmux new -A -s $("$HOME/.config/hypr/scripts/cap_term_name") >/dev/null; exec "$SHELL"'
-
-uwsm-app -- xdg-terminal-exec "$SHELL" -c "tmux new -A -s Alacritty"
-exec "$SHELL"

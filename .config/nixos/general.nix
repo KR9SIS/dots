@@ -8,6 +8,10 @@
     bluetui
     evince
     nautilus
+    gnome-calculator
+    grim
+    slurp
+    satty
 
     libreoffice-qt6
     hunspell
