@@ -29,17 +29,34 @@
     };
   };
 
+  hardware.printers = {
+    ensureDefaultPrinter = "EPSON_ET-2750_Series";
+    ensurePrinters = [
+      {
+        deviceUri = "ipp://192.168.10.216/ipp/print";
+        location = "Home";
+        name = "EPSON_ET-2750_Series";
+        model = "everywhere";
+        ppdOptions = {
+          PageSize = "A4";
+          Duplex = "DuplexNoTumble";
+        };
+      }
+    ];
+  };
+
   services = {
-    mullvad-vpn = {
-      enable = true;
-      enableEarlyBootBlocking = true;
-      package = pkgs.mullvad-vpn;
-    };
     printing.enable = true;
     avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
+    };
+
+    mullvad-vpn = {
+      enable = true;
+      enableEarlyBootBlocking = true;
+      package = pkgs.mullvad-vpn;
     };
 
     gvfs.enable = true;

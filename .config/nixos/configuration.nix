@@ -92,6 +92,7 @@
     extraGroups = [
       # "networkmanager"
       "wheel"
+      "lp"
     ];
     # packages = with pkgs; [ ];
   };
