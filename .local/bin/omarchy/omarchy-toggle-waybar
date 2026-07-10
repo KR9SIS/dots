@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-if pgrep -x waybar >/dev/null; then
-  pkill -x waybar --signal SIGUSR1
+if systemctl is-active --user waybar.service -q; then
+  echo "Sending signal"
+  pkill -x .waybar-wrapped --signal SIGUSR1
 else
-  uwsm-app -- waybar >/dev/null 2>&1 &
+  echo "Restarting waybar"
+  systemctl restart --user waybar.service
 fi
