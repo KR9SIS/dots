@@ -19,8 +19,8 @@
 ---------------------
 
 -- Set programs that you use
-TERM = "omarchy-launch-terminal"
-BROWSER = "omarchy-launch-browser"
+TERM = "launch-tmux 'Alacritty'"
+BROWSER = "brave"
 FILEMANAGER = "nautilus"
 MENU = "walker --width 644 --maxheight 300 --minheight 300"
 

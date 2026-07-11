@@ -9,9 +9,9 @@
 require("helpers.setup_home")
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("brave")
+	O.launch(BROWSER)
 	hl.exec_cmd("tmux new -s NixOS -d")
-	hl.exec_cmd("xdg-terminal-exec launch-tmux 'Alacritty'")
+	O.launch(TERM, "-T")
 
 	hl.timer(SETUP_HOME, { type = "oneshot", timeout = 1000 })
 end)

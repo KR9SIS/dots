@@ -6,49 +6,43 @@ local function shell_quote(value)
 	return "'" .. tostring(value):gsub("'", "'\\''") .. "'"
 end
 
-local function command_from(value, description)
+local function launch_or_focus(workspace, app, class)
+	for _, w in ipairs(hl.get_windows()) do
+		if w.class and w.class:find(class, 1, true) then
+			if w.workspace.id == workspace then
+				hl.dispatch(hl.dsp.focus({ workspace = workspace }))
+				return
+			end
+		end
+	end
+	hl.dispatch(hl.dsp.focus({ workspace = workspace }))
+	hl.dispatch(hl.dsp.exec_cmd(app))
+end
+
+local function command_from(value)
 	if type(value) ~= "table" then
 		return value
 	end
 
 	if value.omarchy then
 		return "omarchy-launch-" .. value.omarchy
-	elseif value.focus and value.launch then
-		return O.launch_sole(value.focus, value.launch)
-	elseif value.launch then
-		return O.launch(value.launch)
-	elseif value.webapp then
-		if value.focus then
-			return O.launch_webapp_sole(description, value.webapp)
-		else
-			return O.launch_webapp(value.webapp)
-		end
-	elseif value.tui then
-		if value.focus then
-			return "omarchy-launch-or-focus-tui " .. shell_quote(value.tui)
-		else
-			return "omarchy-launch-tui " .. shell_quote(value.tui)
+	elseif value.ws and value.app and value.class then
+		return function()
+			launch_or_focus(value.ws, O.launch_cmd(value.app, value.uwsm_args, value.args), value.class)
 		end
 	end
 
-	return value
+	return O.launch_cmd(value.launch, value.uwsm_args, value.args)
 end
 
--- Get reference metatable at module load time (side-effect-free, just constructs a dispatcher)
-local hypr_dsp_mt = getmetatable(hl.dsp.window.close())
 function O.bind(keys, description, dispatcher, options)
 	local opts = options or {}
 
 	if description then
 		opts.description = description
-
-		-- Identify hl.dsp objects
-		if getmetatable(dispatcher) == hypr_dsp_mt then
-			opts.description = "Hypr: " .. opts.description
-		end
 	end
 
-	dispatcher = command_from(dispatcher, description)
+	dispatcher = command_from(dispatcher)
 
 	if type(dispatcher) == "string" then
 		dispatcher = hl.dsp.exec_cmd(dispatcher)
@@ -57,30 +51,15 @@ function O.bind(keys, description, dispatcher, options)
 	hl.bind(keys, dispatcher, opts)
 end
 
-function O.launch(command)
-	return "uwsm-app -- " .. command
+function O.launch(command, uwsm_args, args)
+	hl.exec_cmd(O.launch_cmd(command, uwsm_args, args))
 end
 
-function O.exec_on_start(command)
-	hl.on("hyprland.start", function()
-		hl.exec_cmd(command)
-	end)
-end
-
-function O.launch_on_start(command)
-	O.exec_on_start(O.launch(command))
-end
-
-function O.launch_webapp(url)
-	return "omarchy-launch-webapp " .. shell_quote(url)
-end
-
-function O.launch_webapp_sole(name, url)
-	return "omarchy-launch-or-focus-webapp " .. shell_quote(name) .. " " .. shell_quote(url)
-end
-
-function O.launch_sole(match, command)
-	return "omarchy-launch-or-focus " .. shell_quote(match) .. " " .. shell_quote(O.launch(command))
+function O.launch_cmd(command, uwsm_args, args)
+	uwsm_args = uwsm_args or ""
+	command = command or ""
+	args = args or ""
+	return "uwsm app " .. uwsm_args .. " -- " .. command .. " " .. args
 end
 
 function O.bind_menu(keys, description, menu, options)
@@ -92,7 +71,7 @@ function O.bind_toggle(keys, description, toggle, options)
 end
 
 function O.notify(message)
-	return "notify-send -u low " .. shell_quote(message)
+	return "omarchy-notification-send " .. shell_quote(message)
 end
 
 function O.window(match, rules)

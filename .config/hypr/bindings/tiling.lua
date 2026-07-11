@@ -17,11 +17,7 @@ O.bind("SUPER + DOWN", "Focus on below window", hl.dsp.focus({ direction = "d" }
 
 for workspace = 1, 10 do
 	local key = "code:" .. tostring(workspace + 9)
-	O.bind(
-		"SUPER + " .. key,
-		"Switch to workspace " .. workspace,
-		hl.dsp.focus({ workspace = tostring(workspace) })
-	)
+	O.bind("SUPER + " .. key, "Switch to workspace " .. workspace, hl.dsp.focus({ workspace = tostring(workspace) }))
 	O.bind(
 		"SUPER + SHIFT + " .. key,
 		"Move window to workspace " .. workspace,
@@ -50,11 +46,7 @@ O.bind("SUPER + SHIFT + ALT + RIGHT", "Move workspace to right monitor", hl.dsp.
 O.bind("SUPER + SHIFT + ALT + UP", "Move workspace to up monitor", hl.dsp.workspace.move({ monitor = "u" }))
 O.bind("SUPER + SHIFT + ALT + DOWN", "Move workspace to down monitor", hl.dsp.workspace.move({ monitor = "d" }))
 O.bind("SUPER + SHIFT + ALT + KP_Add", "Move workspace to next monitor", hl.dsp.workspace.move({ monitor = "+1" }))
-O.bind(
-	"SUPER + SHIFT + ALT + KP_Subtract",
-	"Move workspace to prev monitor",
-	hl.dsp.workspace.move({ monitor = "-1" })
-)
+O.bind("SUPER + SHIFT + ALT + KP_Subtract", "Move workspace to prev monitor", hl.dsp.workspace.move({ monitor = "-1" }))
 
 O.bind("SUPER + SHIFT + LEFT", "Swap window to the left", hl.dsp.window.swap({ direction = "l" }))
 O.bind("SUPER + SHIFT + RIGHT", "Swap window to the right", hl.dsp.window.swap({ direction = "r" }))
@@ -81,11 +73,7 @@ O.bind(
 	hl.dsp.window.resize({ x = -25, y = 0, relative = true })
 )
 -- code:21 = key to the right of code:20
-O.bind(
-	"SUPER + ALT + code:21",
-	"Shrink window left a little",
-	hl.dsp.window.resize({ x = 25, y = 0, relative = true })
-)
+O.bind("SUPER + ALT + code:21", "Shrink window left a little", hl.dsp.window.resize({ x = 25, y = 0, relative = true }))
 O.bind(
 	"SUPER + SHIFT + ALT + code:20",
 	"Shrink window up a little",
@@ -97,16 +85,8 @@ O.bind(
 	hl.dsp.window.resize({ x = 0, y = 25, relative = true })
 )
 
-O.bind(
-	"SUPER + CTRL + code:20",
-	"Expand window left a lot",
-	hl.dsp.window.resize({ x = -300, y = 0, relative = true })
-)
-O.bind(
-	"SUPER + CTRL + code:21",
-	"Shrink window left a lot",
-	hl.dsp.window.resize({ x = 300, y = 0, relative = true })
-)
+O.bind("SUPER + CTRL + code:20", "Expand window left a lot", hl.dsp.window.resize({ x = -300, y = 0, relative = true }))
+O.bind("SUPER + CTRL + code:21", "Shrink window left a lot", hl.dsp.window.resize({ x = 300, y = 0, relative = true }))
 O.bind(
 	"SUPER + CTRL + SHIFT + code:20",
 	"Shrink window up a lot",
@@ -153,8 +133,4 @@ end
 
 -- code:61 = key to the left of right shift
 O.bind("SUPER + code:61", "Cycle monitor scaling", "omarchy-hyprland-monitor-scaling-cycle")
-O.bind(
-	"SUPER + ALT + code:61",
-	"Cycle monitor scaling backwards",
-	"omarchy-hyprland-monitor-scaling-cycle --reverse"
-)
+O.bind("SUPER + ALT + code:61", "Cycle monitor scaling backwards", "omarchy-hyprland-monitor-scaling-cycle --reverse")
