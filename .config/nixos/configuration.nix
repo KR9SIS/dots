@@ -118,6 +118,7 @@
       glib
       libnotify
       brightnessctl
+      phinger-cursors
     ];
   };
 

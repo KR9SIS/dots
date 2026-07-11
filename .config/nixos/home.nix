@@ -8,6 +8,11 @@
     username = "kr9sis";
     homeDirectory = "/home/kr9sis";
 
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+    };
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
     # introduces backwards incompatible changes.
