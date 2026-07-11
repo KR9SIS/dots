@@ -1,0 +1,22 @@
+# 1. Ignore everything in the repository
+*
+
+# 3. Whitelist the specific directory and all its contents recursively
+# bash
+!.bash/
+!.bash/**
+!.bashrc
+!.inputrc
+!.prettierrc
+
+# bin
+!.local/
+!.local/bin/
+!.local/bin/**
+
+# config
+!.config/
+!.config/**
+
+# 4. Explicitly whitelist the .gitignore file itself
+!.gitignore
