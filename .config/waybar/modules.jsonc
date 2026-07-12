@@ -53,7 +53,6 @@
         "today": "<span color='#cc241d'>{}</span>"
       }
     },
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
     "actions": {
       "on-click": "mode", // left-click → toggle year ↔ month
       "on-scroll-up": "shift_up", // scroll up   → future year/month
