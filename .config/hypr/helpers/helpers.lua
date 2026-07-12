@@ -38,6 +38,13 @@ end
 function O.bind(keys, description, dispatcher, options)
 	local opts = options or {}
 
+	if type(dispatcher) == "table" and dispatcher.launchall then
+		for _, dsp in ipairs(dispatcher.launchall) do
+			O.bind(keys, description, dsp, options)
+		end
+		return
+	end
+
 	if description then
 		opts.description = description
 	end

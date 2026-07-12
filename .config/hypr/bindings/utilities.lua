@@ -25,8 +25,16 @@ O.bind("SUPER + CTRL + ALT + T", "Show time", "omarchy-notification-time")
 O.bind("SUPER + CTRL + ALT + B", "Show battery remaining", "omarchy-notification-battery")
 
 O.bind("SUPER + CTRL + A", "Audio controls", { launch = "wiremix", uwsm_args = "-T" })
-O.bind("SUPER + CTRL + B", "Bluetooth controls", { launch = "bluetui", uwsm_args = "-T" })
-O.bind("SUPER + CTRL + W", "Wifi controls", { launch = "impala", uwsm_args = "-T" })
+O.bind(
+	"SUPER + CTRL + B",
+	"Bluetooth controls",
+	{ launchall = { "rfkill unblock bluetoth", { launch = "bluetui", uwsm_args = "-T" } } }
+)
+O.bind(
+	"SUPER + CTRL + W",
+	"Wifi controls",
+	{ launchall = { "rfkill unblock wifi", { launch = "impala", uwsm_args = "-T" } } }
+)
 O.bind("SUPER + CTRL + T", "Activity", { launch = "btop", uwsm_args = "-T" })
 
 O.bind("SUPER + CTRL + Z", "Zoom in", function()
