@@ -90,11 +90,9 @@
     isNormalUser = true;
     description = "KHS";
     extraGroups = [
-      # "networkmanager"
       "wheel"
       "lp"
     ];
-    # packages = with pkgs; [ ];
   };
 
   home-manager = {
