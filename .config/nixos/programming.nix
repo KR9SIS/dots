@@ -49,6 +49,8 @@
       unzip
       uv
       wl-clipboard
+      wev
+      libxkbcommon
 
       # INFO: Neovim
       nodejs
