@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [[ $# != 1 ]]; then
+  echo "launch-tmux <session name>"
+fi
+
+tmux new -A -s "$1"
+clear
+bash

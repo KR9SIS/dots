@@ -51,9 +51,20 @@
     waybar.enable = true;
   };
 
-  systemd.user.services.waybar = {
-    enableDefaultPath = false;
-    enableStrictShellChecks = true;
-
+  systemd.user.services = {
+    waybar = {
+      path = [
+        "/run/current-system/sw/"
+        "/home/kr9sis/.local"
+      ];
+      enableStrictShellChecks = true;
+    };
+    hypridle = {
+      path = [
+        "/run/current-system/sw/"
+        "/home/kr9sis/.local"
+      ];
+      enableStrictShellChecks = true;
+    };
   };
 }
