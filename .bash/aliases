@@ -27,14 +27,10 @@ fi
 alias grep='grep --color=auto'
 
 if exists fzf; then
-  alias ffe="fzf --preview 'bat --style=numbers --color=always {}' -e"
-
-  if [[ "$TERM" == "xterm-kitty" ]]; then
-    alias ff="fzf --preview 'case \$(file --mime-type -b {}) in image/*) kitty icat --clear --transfer-mode=memory --stdin=no --place=\${FZF_PREVIEW_COLUMNS}x\${FZF_PREVIEW_LINES}@0x0 {} ;; *) bat --style=numbers --color=always {} ;; esac'"
-  else
-    alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-  fi
-  alias ffe="fzf --preview 'bat --style=numbers --color=always {}' -e"
+  ff() {
+    fzf --preview 'bat --style=numbers --color=always {}' --scrollbar='||' "$@"
+  }
+  alias ffe='ff -e'
   alias eff='$EDITOR "$(ff)"'
   sff() {
     if [ $# -eq 0 ]; then
@@ -42,7 +38,7 @@ if exists fzf; then
       return 1
     fi
     local file
-    file=$(find . -type f -printf '%T@\t%p\n' | sort -rn | cut -f2- | ff) && [ -n "$file" ] && scp "$file" "$1"
+    file=$(find . -type f -printf '%T@\t%p\n' | sort -rn | cut -f2- | ff '') && [ -n "$file" ] && scp "$file" "$1"
   }
 fi
 if exists fastfetch; then
