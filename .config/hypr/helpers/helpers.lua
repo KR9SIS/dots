@@ -6,17 +6,53 @@ local function shell_quote(value)
 	return "'" .. tostring(value):gsub("'", "'\\''") .. "'"
 end
 
-local function launch_or_focus(workspace, app, class)
-	for _, w in ipairs(hl.get_windows()) do
-		if w.class and w.class:find(class, 1, true) then
-			if w.workspace.id == workspace then
-				hl.dispatch(hl.dsp.focus({ workspace = workspace }))
-				return
+local function launch_or_focus(cmd)
+	local function has_tag(w, tag)
+		if type(w.tags) ~= "table" then
+			return false
+		end
+
+		for _, t in ipairs(w.tags) do
+			if t == tag or t:find(tag, 1, true) then
+				return true
 			end
 		end
+
+		return false
 	end
-	hl.dispatch(hl.dsp.focus({ workspace = workspace }))
-	hl.dispatch(hl.dsp.exec_cmd(app))
+
+	local tag = cmd.tag or cmd.focus
+	for _, w in ipairs(hl.get_windows()) do
+		if has_tag(w, tag) and (cmd.ws == nil or w.workspace.id == cmd.ws) then
+			hl.dispatch(hl.dsp.focus({ window = w }))
+			return
+		end
+	end
+
+	if cmd.ws then
+		hl.dispatch(hl.dsp.focus({ workspace = cmd.ws }))
+	end
+
+	local sub
+	local timeout_timer
+
+	sub = hl.on("window.open", function(w)
+		hl.dispatch(hl.dsp.window.tag({ tag = "+" .. tag, window = w }))
+		if sub then
+			sub:remove()
+		end
+		if timeout_timer then
+			timeout_timer:set_enabled(false)
+		end
+	end)
+
+	timeout_timer = hl.timer(function()
+		if sub then
+			sub:remove()
+		end
+	end, { timeout = 5000, type = "oneshot" })
+
+	hl.exec_cmd(O.launch_cmd(cmd.focus, cmd.uwsm_args, cmd.args))
 end
 
 local function command_from(value)
@@ -26,9 +62,9 @@ local function command_from(value)
 
 	if value.omarchy then
 		return "omarchy-launch-" .. value.omarchy
-	elseif value.ws and value.app and value.class then
+	elseif value.focus then
 		return function()
-			launch_or_focus(value.ws, O.launch_cmd(value.app, value.uwsm_args, value.args), value.class)
+			launch_or_focus(value)
 		end
 	end
 
