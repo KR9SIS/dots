@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-if [[ $# != 1 ]]; then
-  echo "launch-tmux <session name>"
+if (($# < 1)); then
+  echo "launch-tmux <session name> [cmd]"
 fi
-
-tmux new -A -s "$1"
+tmux new -s "$1" -d
+if ((2 <= $#)); then
+  tmux send-keys -t "$1" "$2" Enter
+fi
+tmux attach -t "$1"
 clear
 bash
