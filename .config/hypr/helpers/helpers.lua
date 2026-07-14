@@ -66,9 +66,11 @@ local function command_from(value)
 		return function()
 			launch_or_focus(value)
 		end
+	elseif value.launch or value.uwsm_args then
+		return O.launch_cmd(value.launch, value.uwsm_args, value.args)
 	end
 
-	return O.launch_cmd(value.launch, value.uwsm_args, value.args)
+	return "omarchy-notification-send 'Error: Keybind misconfigured' -g  "
 end
 
 function O.bind(keys, description, dispatcher, options)
