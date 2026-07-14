@@ -51,6 +51,7 @@
       wl-clipboard
       wev
       libxkbcommon
+      ueberzugpp
 
       # INFO: Neovim
       nodejs
