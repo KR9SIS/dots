@@ -19,7 +19,7 @@
 ---------------------
 
 -- Set programs that you use
-TERM = "launch-tmux 'Alacritty'"
+TERM = "Alacritty"
 BROWSER = "brave"
 FILEMANAGER = "nautilus"
 MENU = "walker --width 644 --maxheight 300 --minheight 300"
