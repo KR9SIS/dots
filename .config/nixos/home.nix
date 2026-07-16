@@ -9,7 +9,7 @@
     homeDirectory = "/home/kr9sis";
 
     pointerCursor = {
-      gtk.enable = true;
+      enable = true;
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-dark";
     };
