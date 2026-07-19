@@ -2,6 +2,7 @@
 
 if (($# < 1)); then
   echo "launch-tmux <session name> [cmd]"
+  exit 1
 fi
 tmux new -s "$1" -d
 if ((2 <= $#)); then
