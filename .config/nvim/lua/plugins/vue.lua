@@ -1,30 +1,30 @@
 -- Resolve vue-language-server path from Nix store or system PATH
 local vue_language_server_path = (function()
-    local binpath = vim.fn.resolve(vim.fn.exepath("vue-language-server") or "")
-    local prefix = binpath:match("(.+)/bin/vue%-language%-server$")
-    if prefix then
-        local candidate = prefix .. "/lib/node_modules/@vue/language-server"
-        if vim.fn.isdirectory(candidate) == 1 then
-            return candidate
-        end
+  local binpath = vim.fn.resolve(vim.fn.exepath("vue-language-server") or "")
+  local prefix = binpath:match("(.+)/bin/vue%-language%-server$")
+  if prefix then
+    local candidate = prefix .. "/lib/node_modules/@vue/language-server"
+    if vim.fn.isdirectory(candidate) == 1 then
+      return candidate
     end
-    return ""
+  end
+  return ""
 end)()
 local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
 local vue_plugin = {
-    name = "@vue/typescript-plugin",
-    location = vue_language_server_path,
-    languages = { "vue" },
-    configNamespace = "typescript",
+  name = "@vue/typescript-plugin",
+  location = vue_language_server_path,
+  languages = { "vue" },
+  configNamespace = "typescript",
 }
 
 local ts_ls_config = {
-    init_options = {
-        plugins = {
-            vue_plugin,
-        },
+  init_options = {
+    plugins = {
+      vue_plugin,
     },
-    filetypes = tsserver_filetypes,
+  },
+  filetypes = tsserver_filetypes,
 }
 
 -- If you are on most recent `nvim-lspconfig`
@@ -74,8 +74,14 @@ local vue_ls_config = {}
 -- nvim 0.11 or above
 -- vim.lsp.config("vtsls", vtsls_config)
 
-vim.lsp.config("vue_ls", vue_ls_config)
-vim.lsp.config("ts_ls", ts_ls_config)
-vim.lsp.enable({ "ts_ls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
-
-return {}
+return {
+  "JoosepAlviste/nvim-ts-context-commentstring",
+  "windwp/nvim-ts-autotag",
+  config = function()
+    vim.lsp.config("vue_ls", vue_ls_config)
+    vim.lsp.config("ts_ls", ts_ls_config)
+    vim.lsp.enable({ "ts_ls", "vue_ls" })
+    require("nvim-ts-autotag").setup({})
+  end,
+  ft = "vue",
+}

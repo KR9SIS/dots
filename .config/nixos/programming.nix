@@ -66,8 +66,9 @@
       markdownlint-cli2
 
       # C#
-      omnisharp-roslyn
+      roslyn-ls
       csharpier
+      dotnet-sdk_10
 
       # C/C++
       clang-tools
