@@ -137,13 +137,9 @@
     ];
     plymouth = {
       enable = true;
-      theme = "circle";
-      logo = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "circle" ];
-        })
+      theme = "omarchy";
+      themePackages = [
+        (pkgs.callPackage ./pkgs/omarchy-plymouth { })
       ];
     };
     loader = {
