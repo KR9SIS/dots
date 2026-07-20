@@ -18,6 +18,7 @@
     hunspellDicts.da_DK
     hunspellDicts.en_US
 
+    pinta
     imv
     mpv
 
