@@ -137,9 +137,9 @@
     ];
     plymouth = {
       enable = true;
-      theme = "omarchy";
+      theme = "nixos";
       themePackages = [
-        (pkgs.callPackage ./pkgs/omarchy-plymouth { })
+        (pkgs.callPackage ./pkgs/nixos-plymouth-load { })
       ];
     };
     loader = {
