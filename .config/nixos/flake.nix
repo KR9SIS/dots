@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    KvLibadwaita = {
+      url = "github:GabePoel/KvLibadwaita";
+      flake = false;
+    };
   };
 
   outputs =

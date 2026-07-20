@@ -16,6 +16,8 @@
     ./desktop.nix
     ./programming.nix
     ./general.nix
+    ./qt.nix
+    ./gtk.nix
   ];
 
   networking = {

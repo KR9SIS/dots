@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "KvLibadwaita": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757782301,
+        "narHash": "sha256-jCXME6mpqqWd7gWReT04a//2O83VQcOaqIIXa+Frntc=",
+        "owner": "GabePoel",
+        "repo": "KvLibadwaita",
+        "rev": "1f4e0bec44b13dabfa1fe4047aa8eeaccf2f3557",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GabePoel",
+        "repo": "KvLibadwaita",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +54,7 @@
     },
     "root": {
       "inputs": {
+        "KvLibadwaita": "KvLibadwaita",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }
