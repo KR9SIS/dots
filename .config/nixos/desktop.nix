@@ -12,7 +12,6 @@
           wayland = {
             enable = true;
           };
-          autoNumlock = true;
           enable = true;
 
         };
