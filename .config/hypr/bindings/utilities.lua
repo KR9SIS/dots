@@ -29,13 +29,6 @@ O.bind("SUPER + CTRL + B", "Bluetooth controls", { focus = "omarchy-launch-bluet
 O.bind("SUPER + CTRL + W", "Wifi controls", { focus = "omarchy-launch-wifi" })
 O.bind("SUPER + CTRL + T", "Activity", { focus = "btop", uwsm_args = "-T" })
 
-O.bind("SUPER + CTRL + Z", "Zoom in", function()
-	local zoom = hl.get_config("cursor.zoom_factor") or 1
-	hl.config({ cursor = { zoom_factor = zoom + 1 } })
-end)
-
-O.bind("SUPER + CTRL + ALT + Z", "Reset zoom", function()
-	hl.config({ cursor = { zoom_factor = 1 } })
-end)
-
 O.bind("SUPER + L", "Lock system", "omarchy-system-lock")
+
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1, mode = "live" })
