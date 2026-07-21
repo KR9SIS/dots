@@ -51,3 +51,6 @@ if exists git && exists lazygit; then
   alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
   alias lazydots='lazygit --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 fi
+if exists hyprshutdown; then
+  alias hreboot='hyprshutdown --post-cmd reboot'
+fi
