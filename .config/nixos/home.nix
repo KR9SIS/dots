@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -100,14 +100,37 @@
     };
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "text/html" = "brave-browser.desktop";
-        "x-scheme-handler/http" = "brave-browser.desktop";
-        "x-scheme-handler/https" = "brave-browser.desktop";
-        "x-scheme-handler/about" = "brave-browser.desktop";
-        "x-scheme-handler/unknown" = "brave-browser.desktop";
-      };
+      defaultApplications = lib.zipAttrsWith (_: builtins.head) (
+        let
+          set-mimes =
+            pkg: desktopName:
+            let
+              mimesFile = pkgs.runCommand "mimes-${desktopName}" { } ''
+                grep "^MimeType=" "${pkg}/share/applications/${desktopName}" \
+                  | sed 's/^MimeType=//' \
+                  | tr ';' '\n' \
+                  | grep -v '^$' \
+                  | sort -u \
+                  | awk 'BEGIN{printf "["} {if(NR>1) printf ","; printf "\"%s\"", $0} END{printf "]"}' \
+                  > $out
+              '';
+              mimeTypes = builtins.fromJSON (builtins.readFile mimesFile);
+            in
+            builtins.listToAttrs (
+              map (x: {
+                name = x;
+                value = desktopName;
+              }) mimeTypes
+            );
+        in
+        [
+          # First package has highest priority
+          (set-mimes pkgs.imv "imv.desktop")
+          (set-mimes pkgs.mpv "mpv.desktop")
+          (set-mimes pkgs.evince "org.gnome.Evince.desktop")
+          (set-mimes pkgs.brave "brave-browser.desktop")
+        ]
+      );
     };
     terminal-exec = {
       enable = true;
