@@ -27,6 +27,13 @@
     joplin-desktop
   ];
 
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "org.gnome.Evince.desktop";
+    "image/*" = "imv.desktop";
+    "audio/*" = "mpv.desktop";
+    "video/*" = "mpv.desktop";
+  };
+
   programs = {
     localsend = {
       enable = true;
