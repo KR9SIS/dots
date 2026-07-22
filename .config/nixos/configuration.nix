@@ -45,6 +45,8 @@
       };
 
     };
+    # Circumvent 30s timeout waiting for ethernet
+    dhcpcd.wait = "background";
 
   };
 
