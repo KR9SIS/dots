@@ -21,7 +21,6 @@
   ];
 
   networking = {
-
     hostName = "yoga7i"; # Define your hostname.
 
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -78,6 +77,8 @@
       dates = "weekly";
       options = "--delete-older-than 28d";
     };
+    # Hard-links identical files in the store
+    optimise.automatic = true;
     settings = {
       experimental-features = [
         "nix-command"
@@ -90,13 +91,16 @@
   console.keyMap = "is-latin1";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."kr9sis" = {
-    isNormalUser = true;
-    description = "KHS";
-    extraGroups = [
-      "wheel"
-      "lp"
-    ];
+  users.users = {
+    "kr9sis" = {
+      isNormalUser = true;
+      description = "KHS";
+      extraGroups = [
+        "wheel" # Sudo
+        "lp" # Printing
+      ];
+    };
+    root.shell = "${pkgs.util-linux}/bin/nologin";
   };
 
   home-manager = {
@@ -158,16 +162,28 @@
 
   };
 
-  security.sudo = {
-    enable = true;
-    wheelNeedsPassword = true; # Require password for sudo (default: user's password)
-    configFile = ''
-      # Force root password instead of user password
-      Defaults rootpw
-    '';
+  security = {
+    sudo = {
+      enable = true;
+      wheelNeedsPassword = true; # Require password for sudo (default: user's password)
+      configFile = ''
+        # Force root password instead of user password
+        Defaults rootpw
+      '';
+    };
+    # PipeWire needs this for realtime priority
+    rtkit.enable = true;
   };
 
   services = {
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+    };
     upower.enable = true;
     tlp = {
       enable = true;
@@ -184,12 +200,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
