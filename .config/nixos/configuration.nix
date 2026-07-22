@@ -165,7 +165,15 @@
     '';
   };
 
-  services.upower.enable = true;
+  services = {
+    upower.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
