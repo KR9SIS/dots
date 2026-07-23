@@ -175,6 +175,9 @@
     rtkit.enable = true;
   };
 
+  systemd.oomd.enable = true;
+  zramSwap.enable = true;
+
   services = {
     pipewire = {
       enable = true;
